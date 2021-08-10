@@ -8,7 +8,7 @@ class SurasName extends StatelessWidget {
         body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/bg3@2x.png"), fit: BoxFit.fill),
+            image: AssetImage("assets/images/2.0x/bg3@2x.png"), fit: BoxFit.fill),
       ),
       child: Center(
         child: SafeArea(
