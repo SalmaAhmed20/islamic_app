@@ -17,7 +17,7 @@ class _SurasNameState extends State<SurasName> {
       q = q.replaceAll(new RegExp(r"\s+"), "");
       q = q.replaceAll('"', '');
       suras = q.split(',');
-      print(suras);
+      //print(suras);
     });
     return suras;
   }
@@ -86,7 +86,7 @@ class _SurasNameState extends State<SurasName> {
                   scrollDirection: Axis.vertical,
                   itemCount: _suras.length,
                   itemBuilder: (context, index) {
-                    return Center(child: Text(_suras[index],style:TextStyle(fontSize: 25,fontFamily:'Al-Kharashi-Koufi-2') ));
+                    return Center(child: Text(_suras[index],style:TextStyle(fontSize: 30,fontFamily:'ReemKufi',fontWeight: FontWeight.w500) ));
                   }),
             )
           ]),
