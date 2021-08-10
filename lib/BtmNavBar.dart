@@ -33,8 +33,9 @@ class _BtmNavBarState extends State<BtmNavBar> {
         backgroundColor: Color(0xFFB7935F),
         unselectedItemColor: Color(0xFFF8F8F8),
         selectedItemColor: Colors.black,
-        unselectedFontSize: 0,
+        showUnselectedLabels: false,
         selectedFontSize: 12,
+        selectedLabelStyle: TextStyle(fontFamily: 'JF Flat'),
         iconSize: 40,
         items: [
           BottomNavigationBarItem(
