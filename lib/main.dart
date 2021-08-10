@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'contant.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp( MaterialApp(
+      home: MyApp())
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp();
-  }
+  contant createState() => contant();
+
 }
