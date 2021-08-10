@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_app/quran.dart';
 import 'PlaceholderWidget.dart';
 
 class BtmNavBar extends StatefulWidget {
@@ -13,8 +14,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
     PlaceholderWidget(Colors.white),
     PlaceholderWidget(Colors.deepOrange),
     PlaceholderWidget(Colors.green),
-    PlaceholderWidget(Colors.black87)
-  ];
+    SurasName()];
 
   void _updateIndex(int value) {
     setState(() {
