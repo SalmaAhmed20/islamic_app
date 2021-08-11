@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamic_app/seb7a.dart';
 
 class tasbeeh extends StatefulWidget {
-  const tasbeeh({Key? key}) : super(key: key);
+
 
   @override
   _tasbeehState createState() => _tasbeehState();
