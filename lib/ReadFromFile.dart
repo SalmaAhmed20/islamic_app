@@ -11,6 +11,7 @@ class ReadFrmFileStateState extends StatefulWidget {
 
 class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
   List<String> Names = [];
+
   Future<List<String>> _loadSuras() async {
     String Path = widget.path;
     List<String> name = [];
@@ -45,11 +46,17 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
         itemCount: Names.length,
         itemBuilder: (context, index) {
           return Center(
-              child: Text(Names[index],
+            child: new GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '$index');
+              },
+              child: new Text(Names[index],
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'ReemKufi',
-                      fontWeight: FontWeight.w500)));
+                      fontWeight: FontWeight.w500)),
+            ),
+          );
         });
   }
 }
