@@ -46,6 +46,11 @@ flutter:
     - family: JF Flat
       fonts:
         - asset: assets/Fonts/JF Flat Regular.ttf
+    - family: ReemKufi
+      fonts:
+        - asset: assets/Fonts/ReemKufi-Regular.ttf
+        - asset: assets/Fonts/ReemKufi-Medium.ttf
+        - asset: assets/Fonts/ReemKufi-Bold.ttf
   uses-material-design: true
   assets:
     - assets/icons/
