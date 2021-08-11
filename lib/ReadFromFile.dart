@@ -46,14 +46,15 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
         itemCount: Names.length,
         itemBuilder: (context, index) {
           return Center(
-            child: new GestureDetector(
-              onTap: () {
+            child: new TextButton(
+              onPressed: () {
                 Navigator.pushNamed(context, '$index');
               },
               child: new Text(Names[index],
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'ReemKufi',
+                      color: Colors.black,
                       fontWeight: FontWeight.w500)),
             ),
           );
