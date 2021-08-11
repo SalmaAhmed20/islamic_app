@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'SuraContent.dart';
+
 class ReadFrmFileStateState extends StatefulWidget {
   final String path;
   ReadFrmFileStateState(this.path);
@@ -48,7 +50,9 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
           return Center(
             child: new TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, '$index');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SuraContent('$index.txt'))
+                );
               },
               child: new Text(Names[index],
                   style: TextStyle(
