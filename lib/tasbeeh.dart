@@ -24,7 +24,6 @@ class _tasbeehState extends State<tasbeeh> {
         ),
 
         child: Center(
-          child: SafeArea(
             child: ListView(
               children: [
                 Row(
@@ -52,8 +51,6 @@ class _tasbeehState extends State<tasbeeh> {
                   ),
 
                 ),
-
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -62,19 +59,20 @@ class _tasbeehState extends State<tasbeeh> {
 
                         decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
-                         color: Color.fromARGB(195, 183, 147, 95),
+                         color: Color.fromRGBO(
+                             183, 147, 95, 0.5),
 
                 ),
-                margin: EdgeInsets.fromLTRB(130, 40, 130, 10),
+                margin: EdgeInsets.fromLTRB(150, 30, 150, 10),
                 child: Text('$counter',style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: 18,),
+                fontSize: 20,),
                 textAlign: TextAlign.center,
                 ),
-                      padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-                      height: 50,
-                      width: 90,
+                      padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      height:60 ,
+                   width: 90,
                 ),
                 ),
                     ],
@@ -93,25 +91,30 @@ class _tasbeehState extends State<tasbeeh> {
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'ReemKufi',
-                    fontSize: 20)),
+                    fontSize: 25)),
                     style: ButtonStyle(
                     backgroundColor:MaterialStateProperty.all<Color>(
-                    Color.fromARGB(255, 186, 147, 107)),
+                    Color.fromRGBO(183, 147, 95, 0.9882352941176471),
+                    ),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                            )
+                        ),
                     ),
 
                   ) ,
+                    height: 40,
                     margin: EdgeInsets.fromLTRB(100, 40, 100, 30),
                   ),
                 ),
               ],
-              ),
+            ),
        ],
     ),
 
           ),
         ),
-
-      ),
     );
   }
 
@@ -127,11 +130,11 @@ class _tasbeehState extends State<tasbeeh> {
           rotate=0;
         }
       if(i==0)
-        typeTasbeeh='سبحان اللـه';
+        typeTasbeeh='سبحان الله';
       if(i==1)
-        typeTasbeeh='اللـه اكبر';
+        typeTasbeeh='الله اكبر';
       if(i==2)
-        typeTasbeeh='لا اله الا اللـه';
+        typeTasbeeh='لا اله الا الله';
     }
     );
     if(i==3) {

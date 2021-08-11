@@ -10,11 +10,12 @@ class seb7a extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child:Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children:[
         Image(
           image: AssetImage("assets/images/2.0x/head of seb7a@2x.png"),
           width: 41,
-          height: 57,
+          height: 50,
         ),
         new RotationTransition(
       turns: new AlwaysStoppedAnimation(Degree.degree / 360),
@@ -27,11 +28,7 @@ class seb7a extends StatelessWidget {
     ),
       ],
       ),
-
         margin: EdgeInsets.zero,
-
-
-
     );
   }
 }
