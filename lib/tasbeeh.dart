@@ -41,32 +41,58 @@ class _tasbeehState extends State<tasbeeh> {
                    ),
                 ),
                   ]),
+                Row(
+                    children: [
+                      Expanded(
+                          child: Image(
+                            image: AssetImage("assets/images/2.0x/head of seb7a@2x.png"),
+                            width: 41,
+                            height: 57,
+                          )),
+                    ]
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                        child: Image(
+                          image: AssetImage("assets/images/2.0x/body of seb7a@2x.png"),
+                          width: 205,
+                          height: 227,
+                        )),
+                  ],
+                ),
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                     Expanded(
                     child:Container(
+
                         decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(5)),
                          color: Colors.brown.withOpacity(0.8),
-                ),
 
+                ),
+                margin: EdgeInsets.fromLTRB(130, 40, 130, 40),
                 child: Text('$counter',style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 20,),
+                fontSize: 18,),
                 textAlign: TextAlign.center,
-
                 ),
+                      padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                      height: 50,
                 ),
                 ),
                     ],
               ),
               Row( crossAxisAlignment:CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
+
               children: [
                   Expanded(
-                  child:ElevatedButton(
+                  child:Container(
+                    child: ElevatedButton(
                     onPressed: () { incrementCounter(); },
                     child: Text(typeTasbeeh,
                     style: TextStyle(
@@ -77,8 +103,10 @@ class _tasbeehState extends State<tasbeeh> {
                     backgroundColor:MaterialStateProperty.all<Color>(
                     Colors.brown.withOpacity(0.5))
                     ),
-                  ) ,
 
+                  ) ,
+                    margin: EdgeInsets.fromLTRB(100, 30, 100, 30),
+                  ),
                 ),
               ],
               ),
