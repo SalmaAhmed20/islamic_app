@@ -8,7 +8,7 @@ class contant extends State<MyApp> {
   String data='';
   fetchFileData() async{
     String responseText;
-    responseText = await rootBundle.loadString('asset/files/file1.txt');
+    responseText = await rootBundle.loadString('asset/files/1.txt');
     setState(() {
       data= responseText;
     });
@@ -22,24 +22,29 @@ class contant extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Text(data)
+      body:new Stack(
+        children: <Widget>[
+          new Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image:new AssetImage("asset/bg3@3x.png"),
+                      fit: BoxFit.fill
+                  ),
+
+              ),
+          ),
+              new Center(
+                  child:new Text(parse(data),style: TextStyle(fontSize:28),textDirection:TextDirection.rtl),
+
+          )
+        ]
       )
-    );
-  }
-}
-
-class sura {
-  String name;
-  String sura_contant;
-    sura(this.name,this.sura_contant){
-      name=this.name;
-      sura_contant=this.sura_contant;
-}
-  Future<String> loadAsset(BuildContext context) async{
-    return await DefaultAssetBundle.of(context).loadString('asset/files/file1.txt');
-  }
+      );
 
   }
+}
+String parse(String data){
+  return data.replaceAllMapped('\n', (match) => '(*)');
+}
+
 
