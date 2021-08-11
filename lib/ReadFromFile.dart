@@ -5,7 +5,8 @@ import 'SuraContent.dart';
 
 class ReadFrmFileStateState extends StatefulWidget {
   final String path;
-  ReadFrmFileStateState(this.path);
+  bool QuarenOrHadth;
+  ReadFrmFileStateState(this.path, {this.QuarenOrHadth = true});
 
   @override
   _ReadFrmFileStateStateState createState() => _ReadFrmFileStateStateState();
@@ -13,7 +14,7 @@ class ReadFrmFileStateState extends StatefulWidget {
 
 class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
   List<String> Names = [];
-
+  List<String> Numbers = [];
   Future<List<String>> _loadSuras() async {
     String Path = widget.path;
     List<String> name = [];
@@ -22,14 +23,20 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
       q = q.replaceAll('"', '');
       name = q.split(',');
     });
+    if (widget.QuarenOrHadth) {
+      await rootBundle.loadString('assets/Texts/sura_size.txt').then((num) {
+        Numbers = num.split(' ');
+      });
+    }
     return name;
   }
 
   _setup() async {
-    // Retrieve the questions (Processed in the background)
+    // Retrieve the Surars (Processed in the background)
     final List<String> suras = await _loadSuras();
     setState(() {
       Names = suras;
+      Numbers = Numbers;
     });
   }
 
@@ -50,16 +57,34 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
           return Center(
             child: new TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SuraContent('$index.txt'))
-                );
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SuraContent('$index.txt')));
               },
-              child: new Text(Names[index],
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontFamily: 'ReemKufi',
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500)),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: new Text(Numbers[index],
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'ReemKufi',
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500),
+                        textAlign: TextAlign.center),
+                  ),
+                  Expanded(
+                    child: new Text(
+                        (widget.QuarenOrHadth ? Names[index] : index),
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'ReemKufi',
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500),
+                        textAlign: TextAlign.center),
+                  ),
+                ],
+              ),
             ),
           );
         });

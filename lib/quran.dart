@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:islamic_app/IslamyText.dart';
+import 'IslamyText.dart';
 import 'ReadFromFile.dart';
 
 class SurasName extends StatefulWidget {
@@ -9,7 +9,6 @@ class SurasName extends StatefulWidget {
 }
 
 class _SurasNameState extends State<SurasName> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,23 +38,25 @@ class _SurasNameState extends State<SurasName> {
               ),
               child: Row(
                 children: [
-                  Expanded(
-                      child: Text(
-                    'اسم السورة',
-                    style: TextStyle(
-                      fontFamily: 'ElMessiri',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 25,
-                    ),
-                    textAlign: TextAlign.center,
-                  ))
-                ],
-              ),
+                  Expanded(child: _Labels('عدد الآيات')),
+                  Expanded(child: _Labels('اسم السورة'))],),
             ),
             Expanded(child: ReadFrmFileStateState('assets/Texts/Names.txt')),
           ]),
         ),
       ),
     ));
+  }
+
+  _Labels(String labels) {
+    return Text(
+      labels,
+      style: TextStyle(
+        fontFamily: 'ElMessiri',
+        fontWeight: FontWeight.w600,
+        fontSize: 25,
+      ),
+      textAlign: TextAlign.center,
+    );
   }
 }

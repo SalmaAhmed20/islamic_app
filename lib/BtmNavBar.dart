@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/quran.dart';
 import 'PlaceholderWidget.dart';
+import 'quran.dart';
 
 class BtmNavBar extends StatefulWidget {
   @override
