@@ -10,11 +10,15 @@ import 'main.dart';
       this.name = name;
     }
   String data='';
+  String Titlename='';
   fetchFileData() async{
   String responseText;
+  String responseTitle;
   responseText = await rootBundle.loadString('asset/files/$name.txt');
+  responseTitle = await rootBundle.loadString('asset/files/Names.txt');
   setState(() {
   data= responseText;
+  Titlename=responseTitle;
   });
   }
   @override
@@ -26,19 +30,33 @@ import 'main.dart';
   @override
   Widget build(BuildContext context) {
   return Scaffold(
-  body:new Stack(
+    appBar: AppBar(
+      title:Text("سورة الفاتحة"),
+      centerTitle: true,
+      backgroundColor:Colors.white60,
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.exit_to_app),
+          onPressed:(){},
+        ),
+      ]
+    ),
+  body:Stack(
   children: <Widget>[
-  new Container(
+   new Container(
   decoration: BoxDecoration(
   image: DecorationImage(
   image:new AssetImage("asset/bg3@3x.png"),
   fit: BoxFit.fill
   ),
+  ),
+  ),
 
-  ),
-  ),
   new Center(
-  child:new Text(parse(data),style: TextStyle(fontSize:28),textDirection:TextDirection.rtl),
+  child: Container(
+    color: Colors.black.withOpacity(0.6),
+    child: new Text(parse(data),style: TextStyle(fontSize:28),textDirection:TextDirection.rtl),
+    )
 
   )
   ]
@@ -50,5 +68,7 @@ import 'main.dart';
   String parse(String data){
   return data.replaceAllMapped('\n', (match) => '(*)');
   }
-
+  //String parseTitle(String data){
+  //  return data.;
+  //}
 
