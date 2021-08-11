@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class seb7a extends StatelessWidget {
 
-   late degreeOfRotate Degree;
+  degreeOfRotate Degree;
    seb7a(this.Degree);
 
   @override

@@ -75,7 +75,7 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
                   ),
                   Expanded(
                     child: new Text(
-                        (widget.QuarenOrHadth ? Names[index] : index),
+                        (widget.QuarenOrHadth ? Names[index] : "index"),
                         style: TextStyle(
                             fontSize: 30,
                             fontFamily: 'ReemKufi',

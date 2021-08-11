@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_app/tasbeeh.dart';
 import 'PlaceholderWidget.dart';
 import 'quran.dart';
 
@@ -12,7 +13,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
 //put here your pages
   List _screens = [
     PlaceholderWidget(Colors.white),
-    PlaceholderWidget(Colors.deepOrange),
+    tasbeeh(),
     PlaceholderWidget(Colors.green),
     SurasName()];
 
