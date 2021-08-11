@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:islamic_app/IslamyText.dart';
+import 'ReadFromFile.dart';
 
 class SurasName extends StatefulWidget {
   @override
@@ -9,34 +9,6 @@ class SurasName extends StatefulWidget {
 }
 
 class _SurasNameState extends State<SurasName> {
-  //-----------------------------------------
-  List<String> _suras = [];
-  Future<List<String>> _loadSuras() async {
-    List<String> suras = [];
-    await rootBundle.loadString('assets/Texts/Names.txt').then((q) {
-      q = q.replaceAll(new RegExp(r"\s+"), "");
-      q = q.replaceAll('"', '');
-      suras = q.split(',');
-      //print(suras);
-    });
-    return suras;
-  }
-
-//------------------------------------------------------------------
-  _setup() async {
-    // Retrieve the questions (Processed in the background)
-    List<String> suras = await _loadSuras();
-    setState(() {
-      _suras = suras;
-    });
-  }
-
-//-----------------------------------------------
-  @override
-  void initState() {
-    _setup();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,15 +52,7 @@ class _SurasNameState extends State<SurasName> {
                 ],
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: _suras.length,
-                  itemBuilder: (context, index) {
-                    return Center(child: Text(_suras[index],style:TextStyle(fontSize: 30,fontFamily:'ReemKufi',fontWeight: FontWeight.w500) ));
-                  }),
-            )
+            Expanded(child: ReadFrmFileStateState('assets/Texts/Names.txt')),
           ]),
         ),
       ),
