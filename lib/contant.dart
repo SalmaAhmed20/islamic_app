@@ -30,17 +30,19 @@ import 'main.dart';
   @override
   Widget build(BuildContext context) {
   return Scaffold(
+    extendBodyBehindAppBar: true,
     appBar: AppBar(
-      title:Text("سورة الفاتحة"),
+      title:Text("اسلامـي",style: TextStyle(color: Colors.black87,fontFamily:'Raleway',fontSize: 35)),
       centerTitle: true,
-      backgroundColor:Colors.white60,
+      backgroundColor:Colors.transparent,
       actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.exit_to_app),
+          icon: Icon(Icons.arrow_back,textDirection: TextDirection.rtl,size: 38,color: Colors.black87,),
           onPressed:(){},
         ),
       ]
     ),
+
   body:Stack(
   children: <Widget>[
    new Container(
@@ -54,10 +56,9 @@ import 'main.dart';
 
   new Center(
   child: Container(
-    color: Colors.black.withOpacity(0.6),
-    child: new Text(parse(data),style: TextStyle(fontSize:28),textDirection:TextDirection.rtl),
+    color: Colors.brown.withOpacity(0.1),
+    child :new Text("سورة الفاتحة"+"\n\n\n"+parse(data),style: TextStyle(fontSize:28),textDirection:TextDirection.rtl,textAlign: TextAlign.center),
     )
-
   )
   ]
   )
