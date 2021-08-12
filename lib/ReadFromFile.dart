@@ -65,24 +65,24 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
               child: Row(
                 children: [
                   Expanded(
-                    child: new Text(Numbers[index],
+              child:(widget.QuarenOrHadth?  new Text(Numbers[index],
                         style: TextStyle(
                             fontSize: 30,
                             fontFamily: 'ReemKufi',
                             color: Colors.black,
                             fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.center),
-                  ),
+                        textAlign: TextAlign.center)
+                  :Text(''))),
                   Expanded(
                     child: new Text(
-                        (widget.QuarenOrHadth ? Names[index] : "$index"),
+                         Names[index] ,
                         style: TextStyle(
                             fontSize: 30,
                             fontFamily: 'ReemKufi',
                             color: Colors.black,
                             fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.center),
-                  ),
+                        textAlign: TextAlign.center)
+                 ),
                 ],
               ),
             ),

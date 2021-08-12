@@ -47,16 +47,16 @@ class _SurasNameState extends State<SurasName> {
       ),
     ));
   }
+}
 
-  _Labels(String labels) {
-    return Text(
-      labels,
-      style: TextStyle(
-        fontFamily: 'ElMessiri',
-        fontWeight: FontWeight.w600,
-        fontSize: 25,
-      ),
-      textAlign: TextAlign.center,
-    );
-  }
+_Labels(String labels) {
+  return Text(
+    labels,
+    style: TextStyle(
+      fontFamily: 'ElMessiri',
+      fontWeight: FontWeight.w400,
+      fontSize: 25,
+    ),
+    textAlign: TextAlign.center,
+  );
 }

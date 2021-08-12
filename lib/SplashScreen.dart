@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
 import 'BtmNavBar.dart';
 
 class SplashScreen extends StatefulWidget {

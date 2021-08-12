@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Ahadth.dart';
 import 'tasbeeh.dart';
 import 'PlaceholderWidget.dart';
 import 'quran.dart';
@@ -14,7 +15,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
   List _screens = [
     PlaceholderWidget(Colors.white),
     tasbeeh(),
-    PlaceholderWidget(Colors.green),
+    Ahadth(),
     SurasName()];
 
   void _updateIndex(int value) {
