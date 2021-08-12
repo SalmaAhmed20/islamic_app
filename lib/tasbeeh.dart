@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/seb7a.dart';
+import 'seb7a.dart';
 
 class tasbeeh extends StatefulWidget {
   @override

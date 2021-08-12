@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/tasbeeh.dart';
+import 'tasbeeh.dart';
 import 'PlaceholderWidget.dart';
 import 'quran.dart';
 
