@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'IslamyText.dart';
+import 'SuraContent.dart';
 
 class Ahadth extends StatelessWidget {
   @override
@@ -19,8 +20,8 @@ class Ahadth extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Image(
-                    image:
-                        AssetImage('assets/icons/2.0x/59253-quran-basmala-islamic-kufic-arabic-calligraphy-icon@2x.png'),
+                    image: AssetImage(
+                        'assets/icons/2.0x/59253-quran-basmala-islamic-kufic-arabic-calligraphy-icon@2x.png'),
                     width: 205,
                     height: 227,
                   )),
@@ -40,10 +41,36 @@ class Ahadth extends StatelessWidget {
                         fontSize: 25,
                       ),
                       textAlign: TextAlign.center,
-                    ))
-                  ]))
-            ]))
-            ))
-    );
+                    )),
+                  ])),
+              Expanded(
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: 50,
+                    itemBuilder: (context, index) {
+                      return Center(
+                          child: new TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SuraContent('$index.txt')));
+                        },
+                        child: Row(children: [
+                          Expanded(
+                              child: new Text('${index+1}الحديث رقم ',
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontFamily: 'ReemKufi',
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center)),
+                        ]),
+                      ));
+                    }),
+              )
+            ])))));
   }
 }
