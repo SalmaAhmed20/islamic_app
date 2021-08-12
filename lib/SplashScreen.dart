@@ -1,42 +1,64 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import 'SecondScreen.dart';
-class MyHomePage extends StatefulWidget {
+import 'BtmNavBar.dart';
 
+class SplashScreen extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-
+class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState()
-  {
+  void initState() {
     super.initState();
-    Timer(Duration(seconds:3),()=>Navigator.push(context,MaterialPageRoute(builder: (context)=>SecondScreen())));
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => BtmNavBar())));
   }
+
   Widget build(BuildContext context) {
     return Container(
-      decoration:BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-            image:AssetImage("assets/splash_bg.png"),
-            fit:BoxFit.cover,
-            colorFilter:ColorFilter.mode(
-                Colors.black.withOpacity(0.1),
-                BlendMode.darken)
+          image: AssetImage("assets/images/2.0x/bg2@2x.png"),
+          fit: BoxFit.fill,
         ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment:CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            SizedBox(height:30.0),
-            SpinKitChasingDots(color: Colors.orange[900],)
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 120.0),
+                    child: SizedBox(
+                      height: 200,
+                      child: Image(
+                        image: AssetImage('assets/icons/3.0x/logo2@3x.png'),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Row(children: [
+              Expanded(
+                child: Container(
+                  alignment: Alignment(0.0, -1.0),
+                  child: SizedBox(
+                    height: 120,
+                    child: Image(
+                      image: AssetImage('assets/icons/3.0x/Group 7@3x.png'),),
+                  ),),
+              )])
           ],
         ),
       ),
