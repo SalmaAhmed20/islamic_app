@@ -47,6 +47,9 @@ flutter:
       - family: JF Flat
         fonts:
           - asset: assets/Fonts/JF Flat Regular.ttf
+      - family: DecoType Thuluth
+        fonts:
+          - asset: assets/Fonts/DecoType Thuluth.ttf
       - family: ReemKufi
         fonts:
           - asset: assets/Fonts/ReemKufi-Regular.ttf

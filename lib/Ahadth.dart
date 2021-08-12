@@ -60,7 +60,7 @@ class Ahadth extends StatelessWidget {
                         },
                         child: Row(children: [
                           Expanded(
-                              child: new Text('${index+1}الحديث رقم ',
+                              child: new Text('${index + 1}الحديث رقم ',
                                   style: TextStyle(
                                       fontSize: 30,
                                       fontFamily: 'ReemKufi',
