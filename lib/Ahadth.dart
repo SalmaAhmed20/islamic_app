@@ -56,7 +56,7 @@ class Ahadth extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      SuraContent('$index.txt')));
+                                      SuraContent('$index')));
                         },
                         child: Row(children: [
                           Expanded(
