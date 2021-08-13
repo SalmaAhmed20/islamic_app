@@ -62,23 +62,29 @@ import 'main.dart';
                 ),
 
                 Center(
-
+                    child:Container(
+                        width: MediaQuery.of(context).size.width /1.3,
+                        height: MediaQuery.of(context).size.height / 1.4,
+                        color: Colors.brown.withOpacity(0.1),
                       child: Column(
                               children: <Widget>[
-                           Text( "\n\n\n\n"+"سـورة"+
-                    parseTitle(Titlename, name) + "\n" ,
+                     Container(
+                       decoration: BoxDecoration(
+                       border: Border(bottom: BorderSide(color: Colors.black,width: 3.0))),
+                         child:Text( "سـورة"+
+                    parseTitle(Titlename, name)  ,
                           style: TextStyle(fontSize: 26,fontFamily: 'ELMessiri',fontWeight: FontWeight.bold),
                           textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.center),
-                                Container(
-                        color: Colors.brown.withOpacity(0.1),
-                                    child: Text("بـسم الله الرحمن الرحـيم"+"\n\n"+
+                          textAlign: TextAlign.center)),
+                                Text("\n"+"بـسم الله الرحمن الرحـيم"+"\n\n"+
                               parse(data),
                           style: TextStyle(fontSize: 26,fontFamily: 'ELMessiri'),
                           textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.center)),
+                          textAlign: TextAlign.center),
+
 
       ]
+                      )
                     )
                 )
               ]
