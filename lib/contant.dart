@@ -61,20 +61,24 @@ import 'main.dart';
                   ),
                 ),
 
-                new Center(
-                    child: Container(
-                      color: Colors.brown.withOpacity(0.1),
-                      child: new Column(children: <Widget>[ Text( "سـورة"+
-                    parseTitle(Titlename, name) + "\n\n" ,
+                Center(
+
+                      child: Column(
+                              children: <Widget>[
+                           Text( "\n\n\n\n"+"سـورة"+
+                    parseTitle(Titlename, name) + "\n" ,
                           style: TextStyle(fontSize: 26,fontFamily: 'ELMessiri',fontWeight: FontWeight.bold),
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.center),
-                         Text("بـسم الله الرحمن الرحـيم"+"\n\n"+
+                                Container(
+                        color: Colors.brown.withOpacity(0.1),
+                                    child: Text("بـسم الله الرحمن الرحـيم"+"\n\n"+
                               parse(data),
                           style: TextStyle(fontSize: 26,fontFamily: 'ELMessiri'),
                           textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.center),]
-                      )
+                          textAlign: TextAlign.center)),
+
+      ]
                     )
                 )
               ]
@@ -86,7 +90,7 @@ import 'main.dart';
     var list =data.split("\n");
     String sura ="";
     int num =0;
-    for(var i=0;i<list.length-1;i++){
+    for(var i=0;i<list.length;i++){
       num=i+1;
       sura = sura+list.elementAt(i)+"($num)";
     }
