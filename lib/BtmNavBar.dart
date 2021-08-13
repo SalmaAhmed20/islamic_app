@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran/radio.dart';
+import 'Ahadth.dart';
+import 'radio.dart';
 import 'tasbeeh.dart';
-import 'PlaceholderWidget.dart';
 import 'quran.dart';
 
 class BtmNavBar extends StatefulWidget {
@@ -15,7 +15,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
   List _screens = [
     radio(),
     tasbeeh(),
-    PlaceholderWidget(Colors.green),
+    Ahadth(),
     SurasName()];
 
   void _updateIndex(int value) {
