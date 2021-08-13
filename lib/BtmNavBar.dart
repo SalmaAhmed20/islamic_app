@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Ahadth.dart';
+import 'radio.dart';
 import 'tasbeeh.dart';
-import 'PlaceholderWidget.dart';
 import 'quran.dart';
 
 class BtmNavBar extends StatefulWidget {
@@ -13,7 +13,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
   int _currentIndex = 3;
 //put here your pages
   List _screens = [
-    PlaceholderWidget(Colors.white),
+    radio(),
     tasbeeh(),
     Ahadth(),
     SurasName()];
