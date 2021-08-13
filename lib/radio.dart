@@ -14,6 +14,7 @@ class radio extends StatelessWidget {
         ),
     child: SafeArea(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
          Row(
           children: [
@@ -32,29 +33,22 @@ class radio extends StatelessWidget {
       Row(
           children: [
             Expanded(
-              child: Container(
-                child: Image(
-                image: AssetImage("assets/images/2.0x/radio@2x.png"),
-                width: 330,
-                height: 380,
+              child: Image(
+              image: AssetImage("assets/images/2.0x/radio@2x.png")
           ),
-              ),
             ),
          ]),
           Row(
             children: [
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 0,10),
-                  child: Text('إذاعة القرآن الكريم',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'ELMessiri',
-                      fontSize: 23,
-                    ),
-                    textAlign: TextAlign.center,
+                child: Text('إذاعة القرآن الكريم',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'ELMessiri',
+                    fontSize: 23,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
