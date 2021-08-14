@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Ahadth.dart';
+import 'Ahadthview.dart';
 import 'radio.dart';
 import 'tasbeeh.dart';
 import 'quran.dart';
@@ -15,7 +15,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
   List _screens = [
     radio(),
     tasbeeh(),
-    Ahadth(),
+    view(),
     SurasName()];
 
   void _updateIndex(int value) {
