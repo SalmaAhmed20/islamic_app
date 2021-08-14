@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'SuraContent.dart';
+import 'contant.dart';
 
 class ReadFrmFileStateState extends StatefulWidget {
   final String path;
@@ -48,7 +47,6 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
@@ -60,7 +58,7 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SuraContent('$index.txt')));
+                        builder: (context) => contant('${index+1}',Names[index])));
               },
               child: Row(
                 children: [

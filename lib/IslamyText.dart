@@ -6,16 +6,14 @@ class IslamyText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Text(
-        Txt,
-        style: TextStyle(
-            color: Colors.black,
-            fontFamily: 'ELMessiri',
-            fontWeight: FontWeight.bold,
-            fontSize: 30),
-        textAlign: TextAlign.center,
-      ),
+    return Text(
+      Txt,
+      style: TextStyle(
+          color: Colors.black,
+          fontFamily: 'ELMessiri',
+          fontWeight: FontWeight.bold,
+          fontSize: 30),
+      textAlign: TextAlign.center,
     );
   }
 }

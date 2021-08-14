@@ -15,7 +15,7 @@ class Ahadth extends StatelessWidget {
             child: Center(
                 child: SafeArea(
                     child: Column(children: [
-              Row(children: [IslamyText("إسلامي")]),
+              Row(children: [Expanded(child: IslamyText("إسلامي"))]),
               Row(
                 children: [
                   Expanded(

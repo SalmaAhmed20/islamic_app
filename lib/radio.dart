@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/IslamyText.dart';
 
 class radio extends StatelessWidget {
   @override
@@ -16,15 +17,7 @@ class radio extends StatelessWidget {
               children: [
                 Row(children: [
                   Expanded(
-                    child: Text(
-                      'إسلامي',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'ELMessiri',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                      textAlign: TextAlign.center,
-                    ),
+                   child: IslamyText('إسلامي'),
                   )
                 ]),
                 SizedBox(height: 40),
