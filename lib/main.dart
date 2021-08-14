@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-
-import 'contant.dart';
+import 'SplashScreen.dart';
 
 void main() {
-  runApp( MaterialApp(
-      home: MyApp())
-  );
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
-  contant createState() => contant("1");
-
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    );
+  }
 }

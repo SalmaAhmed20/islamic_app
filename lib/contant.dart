@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:quran_app/main.dart';
-import 'main.dart';
+import 'package:flutter/widgets.dart';
 
-class contant extends State<MyApp> {
+import 'IslamyText.dart';
+
+class contant extends StatefulWidget {
   String name = '';
-
-  contant(String name) {
+  String nameofSura = '';
+  contant(String name, String ns) {
     this.name = name;
+    this.nameofSura = ns;
   }
 
+  @override
+  _contantState createState() => _contantState();
+}
+
+class _contantState extends State<contant> {
   String data = '';
-  String Titlename = '';
+
+  //String Titlename = '';
 
   fetchFileData() async {
     String responseText;
-    String responseTitle;
-    responseText = await rootBundle.loadString('asset/files/$name.txt');
-    responseTitle = await rootBundle.loadString('asset/files/Names.txt');
+    responseText =
+        await rootBundle.loadString('assets/Texts/Quran/${widget.name}.txt');
     setState(() {
       data = responseText;
-      Titlename = responseTitle;
     });
   }
 
@@ -34,68 +40,76 @@ class contant extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-            title: Text("اسلامـي",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'ELMessiri',
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold)),
-            centerTitle: true,
-            backgroundColor: Colors.transparent,
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.arrow_back,
-                  textDirection: TextDirection.rtl,
-                  size: 38,
-                  color: Colors.black87,
-                ),
-                onPressed: () {},
-              ),
-            ]),
-        body: Stack(children: <Widget>[
-          new Container(
+        body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: new AssetImage("asset/bg3@3x.png"), fit: BoxFit.fill),
+                  image: new AssetImage("assets/images/3.0x/bg3@3x.png"),
+                  fit: BoxFit.fill),
             ),
-          ),
-          Center(
-              child: Container(
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  height: MediaQuery.of(context).size.height / 1.4,
-                  color: Colors.brown.withOpacity(0.1),
-                  child: Column(children: <Widget>[
-                    Container(
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(
-                                    color: Colors.black, width: 3.0))),
-                        child: Text("سـورة" + parseTitle(Titlename, name),
-                            style: TextStyle(
-                                fontSize: 26,
-                                fontFamily: 'ELMessiri',
-                                fontWeight: FontWeight.bold),
-                            textDirection: TextDirection.rtl,
-                            textAlign: TextAlign.center)),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Text(
-                            "\n" +
-                                "بـسم الله الرحمن الرحـيم" +
-                                "\n\n" +
-                                parse(data),
-                            style: TextStyle(
-                                fontSize: 26, fontFamily: 'ELMessiri'),
-                            textDirection: TextDirection.rtl,
-                            textAlign: TextAlign.center),
+            child: Center(
+                child: SafeArea(
+              child: Column(
+                children: [
+                  Row(children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back,
+                        textDirection: TextDirection.ltr,
+                        size: 30,
+                        color: Colors.black87,
                       ),
+                      onPressed: () {Navigator.pop(context);},
                     ),
-                  ])))
-        ]));
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(90,0,0,0),
+                      child: IslamyText("إسلامي"),
+                    )
+                  ]),
+                  SizedBox(height: 20),
+                  Container(
+                      width: MediaQuery.of(context).size.width / 1.3,
+                      height: MediaQuery.of(context).size.height / 1.2,
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(243, 243, 243, 0.5),
+                          borderRadius: BorderRadius.all(Radius.circular(25))),
+                      child: Column(children: <Widget>[
+                        SizedBox(height: 20),
+                        Container(
+                            decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(
+                                      color: Color(0xFFB7935F), width: 2)),
+                            ),
+                            child: Text("سـورة" + widget.nameofSura,
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    fontFamily: 'ReemKufi',
+                                    fontWeight: FontWeight.w500),
+                                textDirection: TextDirection.rtl,
+                                textAlign: TextAlign.center)),
+                        SizedBox(height: 20),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              child: Text(
+                                  " \n" +
+                                      "بـسم الله الرحمن الرحـيم" +
+                                      "\n\n" +
+                                      parse(data),
+                                  style: TextStyle(
+                                      fontSize: 26,
+                                      fontFamily: 'DecoType Thuluth'),
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center),
+                            ),
+                          ),
+                        ),
+                      ])),
+                ],
+              ),
+            ))));
   }
 }
 
@@ -105,13 +119,7 @@ String parse(String data) {
   int num = 0;
   for (var i = 0; i < list.length; i++) {
     num = i + 1;
-    sura = sura + list.elementAt(i) + "($num)";
+    sura = sura + list.elementAt(i) + "($num)\n";
   }
   return sura;
-}
-
-String parseTitle(String data, String name) {
-  var list = data.split(",");
-  var num_of_sura = int.parse(name);
-  return list.elementAt(num_of_sura - 1);
 }
