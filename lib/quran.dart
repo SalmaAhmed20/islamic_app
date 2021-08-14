@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'IslamyText.dart';
-import 'ReadFromFile.dart';
+import 'LoadNamesList.dart';
 
 class SurasName extends StatefulWidget {
   @override

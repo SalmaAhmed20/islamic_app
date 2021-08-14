@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'contant.dart';
+import 'SuraContent.dart';
 
 class ReadFrmFileStateState extends StatefulWidget {
   final String path;
-  bool QuarenOrHadth;
-  ReadFrmFileStateState(this.path, {this.QuarenOrHadth = true});
+  ReadFrmFileStateState(this.path);
 
   @override
   _ReadFrmFileStateStateState createState() => _ReadFrmFileStateStateState();
@@ -22,11 +21,9 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
       q = q.replaceAll('"', '');
       name = q.split(',');
     });
-    if (widget.QuarenOrHadth) {
       await rootBundle.loadString('assets/Texts/sura_size.txt').then((num) {
         Numbers = num.split(' ');
       });
-    }
     return name;
   }
 
@@ -63,14 +60,14 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
               child: Row(
                 children: [
                   Expanded(
-              child:(widget.QuarenOrHadth?  new Text(Numbers[index],
+              child:  new Text(Numbers[index],
                         style: TextStyle(
                             fontSize: 30,
                             fontFamily: 'ReemKufi',
                             color: Colors.black,
                             fontWeight: FontWeight.w500),
                         textAlign: TextAlign.center)
-                  :Text(''))),
+                ),
                   Expanded(
                     child: new Text(
                          Names[index] ,
