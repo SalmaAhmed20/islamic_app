@@ -1,16 +1,22 @@
 # islamic_app
 
-A new Flutter application.
+Islamy Application is Flutter application that Helping/allowing people specially muslims to To do some of their Islamic rituals like Reading The Holy Quran ,Prophet Mohammad speech ,praise(altasbih) and Listening to Islamic radio channels   .
 
-## Getting Started
+## Starting Page
+is a splash screen, an intro for any flutter application and it's customized to be appropiate to islamic application
 
-This project is a starting point for a Flutter application.
+## First Page
+represeting the feature of Reading The Quran by scrollable list that contain all the suras with it's size to choose which one you want to reading,
+by clicking on sura's name or sura's size , another screen will be appear to you with sura name and scrollable text that contain all of it so you can read it
 
-A few resources to get you started if this is your first Flutter project:
+## Second Page
+representing the feature of Reading Prophet Mohammad speech  by scrollable list that contain 50 speech by clicking on it the rollable text that contain all of it so you can read it
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+##Thired Page
+representing feature praise(altasbih) that allow to count 32 Glory be to Allah (subhan allah
+)  after completing it allow to another 32 of Allah is the greatest(allah akbar
+)and after completing it allow to another 32 of No God except Allah (la alih ala allah)
+with rotating sabha
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##fourth Page
+Islamic broad cast feature that allow you to listening to islamic channel (that reading Quran)
