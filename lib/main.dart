@@ -1,7 +1,10 @@
+
 import 'package:flutter/material.dart';
-import 'hadeth1.dart';
-import 'hadeth2.dart';
-import 'hadeth3.dart';
+import 'content.dart';
+import 'hadeth.dart';
+import 'listview.dart';
+
+
 void main() {
   runApp(MyApp());
 }
@@ -28,63 +31,38 @@ class MyHome extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body:Center(
-            child: Column(children: [
-              Container(
-                height: 250,
-                child: Image.asset('images/icone.png'),
-              ),
+        body:Column(children: [
 
-              container(),
+          Container(
+            height: 250,
+            child: Image.asset('images/icone.png'),
+          ),
 
-              Text (' الاحاديث',style: TextStyle(fontSize: 27,color: Colors.black ,fontFamily: 'ElMessiri'),
-              ),
 
-              container(),
+          container(),
 
-              /*SizedBox(
-             height:20
-           ),*/
+          Text (' الاحاديث',style: TextStyle(fontSize: 27,color: Colors.black ,fontFamily: 'JF'),
+          ),
 
-              navigator(context,"1الحديث رقم ",App()),
-              navigator(context,"2الحديث رقم ",App2()),
-              navigator(context,"3الحديث رقم ",App3()),
-              navigator(context,"4الحديث رقم ",App2()),
-              navigator(context,"5الحديث رقم ",App2()),
-              navigator(context,"6الحديث رقم ",App2()),
-              navigator(context,"7الحديث رقم ",App2()),
+          container(),
 
-            ],
+          //list(context),
 
-            )
+          Expanded(
+
+            child: view() ,),
+
+
+        ],
         ),
       ),
+
+
     );
   }
 }
 
 
-Widget navigator(BuildContext context,text,text2) {
-  return FlatButton(
-    child: Text(
-      '$text',
-      style: TextStyle(
-          fontSize: 23,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 2.0,
-          fontFamily: 'JF'),
-    ),
-    onPressed: () {
-
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (BuildContext context) => text2,
-          ));
-    },
-  );
-}
 Widget container(){
   return  Container(
     height: 3,
@@ -92,3 +70,5 @@ Widget container(){
 
   );
 }
+
+
