@@ -18,5 +18,10 @@ representing feature praise(altasbih) that allow to count 32 Glory be to Allah (
 )and after completing it allow to another 32 of No God except Allah (la alih ala allah)
 with rotating sabha
 
-##fourth Page
+## fourth Page
 Islamic broad cast feature that allow you to listening to islamic channel (that reading Quran)
+
+
+
+https://user-images.githubusercontent.com/64385957/129462188-6317601c-9a87-47a7-930a-60be6af92c89.mp4
+
