@@ -13,6 +13,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
   int _currentIndex = 3;
 //put here your pages
   List _screens = [
+    Text("setting"),
     radio(),
     tasbeeh(),
     view(),
@@ -41,20 +42,24 @@ class _BtmNavBarState extends State<BtmNavBar> {
         iconSize: 40,
         items: [
           BottomNavigationBarItem(
+            label: "الاعدادات",
+            icon: Icon(Icons.settings),
+          ),
+          BottomNavigationBarItem(
             label: "الأذاعة",
-            icon: ImageIcon(AssetImage("assets/icons/2.0x/radio@2x.png")),
+            icon: ImageIcon(AssetImage("assets/icons/3.0x/radio@3x.png")),
           ),
           BottomNavigationBarItem(
             label: "التسبيح",
-            icon: ImageIcon(AssetImage("assets/icons/2.0x/sebha_blue@2x.png")),
+            icon: ImageIcon(AssetImage("assets/icons/3.0x/sebha_blue@3x.png")),
           ),
           BottomNavigationBarItem(
             label: "الأحاديث",
-            icon: ImageIcon(AssetImage("assets/icons/2.0x/Group 6@2x.png")),
+            icon: ImageIcon(AssetImage("assets/icons/3.0x/Group 6@3x.png")),
           ),
           BottomNavigationBarItem(
             label: "القرآن",
-            icon: ImageIcon(AssetImage('assets/icons/2.0x/quran@2x.png')),
+            icon: ImageIcon(AssetImage('assets/icons/3.0x/quran@3x.png')),
           ),
         ],
       ),
