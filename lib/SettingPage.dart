@@ -36,6 +36,7 @@ class _setting extends State<SettingPage>{
         )
         ]),
             Container(
+
                 padding: EdgeInsets.symmetric(vertical: 48 ,horizontal: 24),
              child: Column(
                  crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -43,17 +44,25 @@ class _setting extends State<SettingPage>{
                    InkWell(
                      onTap: (){},
                      child: Container(
-                       color: Colors.white38,
-                       padding: EdgeInsets.symmetric(vertical: 15),
                        child: _Labels('Language'),
+                       decoration: BoxDecoration(
+                         color: Colors.brown.shade50,
+                         borderRadius: BorderRadius.circular(15),
+                       ),
+                       padding: EdgeInsets.symmetric(vertical: 15),
+
                      ),
                    ),
           InkWell(
             onTap: (){},
             child: Container(
-                color: Colors.white38,
+
               padding: EdgeInsets.symmetric(vertical: 15),
               child: _Labels('Theme'),
+              decoration: BoxDecoration(
+                color: Colors.brown.shade50,
+                borderRadius: BorderRadius.circular(15),
+              ),
             ),
           ),
           ] )),
