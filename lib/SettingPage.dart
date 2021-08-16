@@ -12,7 +12,7 @@ class SettingPage extends StatefulWidget {
 class _setting extends State<SettingPage>{
   @override
   Widget build(BuildContext context) {
-    ThemeAndLanguage _Thema;
+    ThemeAndLanguage _Thema=new ThemeAndLanguage();
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
