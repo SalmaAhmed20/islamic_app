@@ -3,7 +3,7 @@ import 'Ahadthview.dart';
 import 'radio.dart';
 import 'tasbeeh.dart';
 import 'quran.dart';
-
+import 'SettingPage.dart';
 class BtmNavBar extends StatefulWidget {
   @override
   _BtmNavBarState createState() => _BtmNavBarState();
@@ -13,7 +13,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
   int _currentIndex = 3;
 //put here your pages
   List _screens = [
-    Text("setting"),
+    SettingPage(),
     radio(),
     tasbeeh(),
     view(),
