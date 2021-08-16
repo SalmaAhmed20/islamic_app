@@ -1,4 +1,7 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:quran/ThemeAndLanguage.dart';
 
 import 'IslamyText.dart';
 
@@ -9,6 +12,7 @@ class SettingPage extends StatefulWidget {
 class _setting extends State<SettingPage>{
   @override
   Widget build(BuildContext context) {
+    ThemeAndLanguage _Thema;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -21,32 +25,20 @@ class _setting extends State<SettingPage>{
       child: Column(
         children: [
       Row(children: [
-      IconButton(
-        icon: Icon(
-        Icons.arrow_back,
-        textDirection: TextDirection.ltr,
-        size: 30,
-        color: Colors.black87,
-      ),
-        onPressed: () {Navigator.pop(context);},
-      ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(90,0,0,0),
-          child: IslamyText("إسلامي"),
-        )
+        Expanded(child: IslamyText("إسلامي"))
         ]),
             Container(
-
                 padding: EdgeInsets.symmetric(vertical: 48 ,horizontal: 24),
              child: Column(
                  crossAxisAlignment: CrossAxisAlignment.stretch,
                  children: [
                    InkWell(
-                     onTap: (){},
+                     onTap: (){_Thema.bottomsheets("language",context);},
                      child: Container(
+                       margin: EdgeInsets.symmetric(vertical: 20),
                        child: _Labels('Language'),
                        decoration: BoxDecoration(
-                         color: Colors.brown.shade50,
+                         color: Color(0x59FB7935F),
                          borderRadius: BorderRadius.circular(15),
                        ),
                        padding: EdgeInsets.symmetric(vertical: 15),
@@ -54,13 +46,13 @@ class _setting extends State<SettingPage>{
                      ),
                    ),
           InkWell(
-            onTap: (){},
+            onTap: (){_Thema.bottomsheets("theme",context);},
             child: Container(
 
               padding: EdgeInsets.symmetric(vertical: 15),
               child: _Labels('Theme'),
               decoration: BoxDecoration(
-                color: Colors.brown.shade50,
+                color: Color(0x59FB7935F),
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
@@ -80,6 +72,6 @@ _Labels(String labels) {
       fontWeight: FontWeight.w400,
       fontSize: 25,
     ),
-    textAlign: TextAlign.left,
+    textAlign: TextAlign.center,
   );
 }
