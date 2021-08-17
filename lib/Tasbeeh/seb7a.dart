@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'providerlangTheme.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 class seb7a extends StatelessWidget {
   degreeOfRotate Degree;
   late proLangThm provider;

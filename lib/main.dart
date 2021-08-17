@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'SplashScreen.dart';
-import 'providerlangTheme.dart';
+import 'OtherPages/SplashScreen.dart';
+import 'Provider-lang-theme/providerlangTheme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

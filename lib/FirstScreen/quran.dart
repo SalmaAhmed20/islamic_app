@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/providerlangTheme.dart';
-import 'IslamyText.dart';
+import 'package:quran/Provider-lang-theme/providerlangTheme.dart';
+import '../App/IslamyText.dart';
 import 'LoadNamesList.dart';
 
 class SurasName extends StatefulWidget {

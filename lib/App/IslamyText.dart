@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'providerlangTheme.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 
 class IslamyText extends StatelessWidget {
   String Txt = '';

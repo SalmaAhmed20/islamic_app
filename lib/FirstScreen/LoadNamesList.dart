@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'SuraContent.dart';
-import 'providerlangTheme.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 
 class ReadFrmFileStateState extends StatefulWidget {
   final String path;

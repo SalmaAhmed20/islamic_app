@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/providerlangTheme.dart';
+import 'package:quran/Provider-lang-theme/providerlangTheme.dart';
 
-import 'IslamyText.dart';
+import '../App/IslamyText.dart';
 
 class hadeth_content extends StatefulWidget {
   int index;

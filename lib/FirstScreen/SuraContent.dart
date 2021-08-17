@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/providerlangTheme.dart';
+import 'package:quran/Provider-lang-theme/providerlangTheme.dart';
 
-import 'IslamyText.dart';
+import '../App/IslamyText.dart';
 
 class contant extends StatefulWidget {
   String name = '';

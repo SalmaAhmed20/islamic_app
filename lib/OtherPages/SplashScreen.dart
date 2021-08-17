@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'BtmNavBar.dart';
-import 'providerlangTheme.dart';
+import '../App/BtmNavBar.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

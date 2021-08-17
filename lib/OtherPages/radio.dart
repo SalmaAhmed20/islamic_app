@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran/IslamyText.dart';
+import 'package:quran/App/IslamyText.dart';
 import 'package:provider/provider.dart';
-import 'providerlangTheme.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 class radio extends StatelessWidget {
   late proLangThm provider;
   @override

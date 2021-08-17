@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quran/IslamyText.dart';
+import 'package:quran/App/IslamyText.dart';
 import 'seb7a.dart';
 import 'package:provider/provider.dart';
-import 'providerlangTheme.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 
 class tasbeeh extends StatefulWidget {
   @override

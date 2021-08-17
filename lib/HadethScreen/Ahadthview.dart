@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'IslamyText.dart';
+import '../App/IslamyText.dart';
 import 'hadethContent.dart';
-import 'providerlangTheme.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 
 class view extends StatelessWidget {
   late proLangThm provider;

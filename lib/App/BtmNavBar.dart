@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'Ahadthview.dart';
-import 'providerlangTheme.dart';
-import 'radio.dart';
-import 'tasbeeh.dart';
-import 'quran.dart';
-import 'SettingPage.dart';
+import '../HadethScreen/Ahadthview.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
+import '../OtherPages/radio.dart';
+import '../Tasbeeh/tasbeeh.dart';
+import '../FirstScreen/quran.dart';
+import '../OtherPages/SettingPage.dart';
 class BtmNavBar extends StatefulWidget {
   @override
   _BtmNavBarState createState() => _BtmNavBarState();
