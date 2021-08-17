@@ -1,17 +1,22 @@
 
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quran/ThemeAndLanguage.dart';
-
+import 'providerlangTheme.dart';
 import 'IslamyText.dart';
 
 class SettingPage extends StatefulWidget {
+
   @override
   _setting createState() => _setting();
 }
 class _setting extends State<SettingPage>{
+   providerlangTheme provider;
+
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<providerlangTheme>(context);
     ThemeAndLanguage _Thema=new ThemeAndLanguage();
     return Scaffold(
       body: Container(
@@ -25,7 +30,7 @@ class _setting extends State<SettingPage>{
       child: Column(
         children: [
       Row(children: [
-        Expanded(child: IslamyText("إسلامي"))
+        Expanded(child: IslamyText(AppLocalizations.of(context).title))
         ]),
             Container(
                 padding: EdgeInsets.symmetric(vertical: 48 ,horizontal: 24),

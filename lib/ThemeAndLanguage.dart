@@ -1,8 +1,14 @@
 
+//import 'dart:js';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:quran/providerlangTheme.dart';
 
 class ThemeAndLanguage{
+  providerlangTheme provider=new providerlangTheme();
+
   void bottomsheets(String flag,BuildContext context) {
+   Provider.of<providerlangTheme>(context);
     showModalBottomSheet(
         context: context,
         elevation: 50.0,
@@ -38,7 +44,10 @@ class ThemeAndLanguage{
                   Shadow(
                       color: Colors.black26, offset: Offset(10, 5), blurRadius: 5)
                 ]),),
-          onTap: () => pop( context),
+          onTap: () {
+           // pop(context);
+            provider.changeLanguage("en");
+          },
         ),
         ListTile(
           title: Text('العربية',textAlign: TextAlign.center,
@@ -49,7 +58,10 @@ class ThemeAndLanguage{
                       color: Colors.black26, offset: Offset(10, 5), blurRadius: 5)
                 ]),
           ),
-          onTap: () => pop( context),
+          onTap:(){
+         // pop(context);
+          provider.changeLanguage("ar");
+          },
         )
       ],
     );

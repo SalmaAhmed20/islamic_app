@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'IslamyText.dart';
 
 class contant extends StatefulWidget {
@@ -61,7 +61,7 @@ class _contantState extends State<contant> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(90,0,0,0),
-                      child: IslamyText("إسلامي"),
+                      child: IslamyText(AppLocalizations.of(context).title),
                     )
                   ]),
                   SizedBox(height: 20),

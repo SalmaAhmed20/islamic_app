@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran/IslamyText.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class radio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class radio extends StatelessWidget {
               children: [
                 Row(children: [
                   Expanded(
-                   child: IslamyText('إسلامي'),
+                   child: IslamyText(AppLocalizations.of(context).title),
                   )
                 ]),
                 SizedBox(height: 40),
@@ -31,7 +31,7 @@ class radio extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'إذاعة القرآن الكريم',
+                        AppLocalizations.of(context).title8,
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,

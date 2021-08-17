@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'IslamyText.dart';
 import 'hadethContent.dart';
+import 'package:quran/providerlangTheme.dart';
+import 'package:provider/provider.dart';
+
 
 class view extends StatelessWidget {
+  providerlangTheme provider=new providerlangTheme();
   @override
   Widget build(BuildContext context) {
+    Provider.of<providerlangTheme>(context);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
@@ -17,7 +22,7 @@ class view extends StatelessWidget {
             child: Center(
                 child: SafeArea(
                     child: Column(children: [
-              Row(children: [Expanded(child: IslamyText("إسلامي"))]),
+              Row(children: [Expanded(child: IslamyText(AppLocalizations.of(context).title))]),
               Row(
                 children: [
                   Expanded(
@@ -36,7 +41,7 @@ class view extends StatelessWidget {
                   child: Row(children: [
                     Expanded(
                         child: Text(
-                      'الأحاديث',
+                      AppLocalizations.of(context).title2,
                       style: TextStyle(
                         fontFamily: 'ElMessiri',
                         fontWeight: FontWeight.w500,
@@ -59,7 +64,7 @@ class view extends StatelessWidget {
                             // contentPadding:,
 
                             title: Text(
-                              "الحديث رقم $index2",
+                              AppLocalizations.of(context).title3+"$index2",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 30,
@@ -72,7 +77,8 @@ class view extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => hadeth_content(index)),
+                                    builder: (context) =>
+                                        hadeth_content(index)),
                               );
                             },
                           ),

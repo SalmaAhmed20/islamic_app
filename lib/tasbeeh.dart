@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran/IslamyText.dart';
 import 'seb7a.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class tasbeeh extends StatefulWidget {
   @override
   _tasbeehState createState() => _tasbeehState();
@@ -10,9 +10,11 @@ class tasbeeh extends StatefulWidget {
 class _tasbeehState extends State<tasbeeh> {
   int counter = 0;
   int i = 0, rotate = 0;
-  String typeTasbeeh = 'سبحان الله';
+  String typeTasbeeh ='';
+
   @override
   Widget build(BuildContext context) {
+    String typeTasbeeh = AppLocalizations.of(context).title6;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -26,14 +28,14 @@ class _tasbeehState extends State<tasbeeh> {
             children: [
               Row(children: [
                 Expanded(
-                  child:IslamyText('إسلامي')
+                  child:IslamyText(AppLocalizations.of(context).title)
                 ),
               ]),
               seb7a(degreeOfRotate(rotate)),
               Container(
                 //margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                 child: Text(
-                  'عدد التسبيحات',
+                  AppLocalizations.of(context).title7,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,

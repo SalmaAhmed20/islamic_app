@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'IslamyText.dart';
 
 class hadeth_content extends StatefulWidget {
@@ -105,7 +105,7 @@ class _hadeth_contentState extends State<hadeth_content> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
-                  child: IslamyText("إسلامي"),
+                  child: IslamyText(AppLocalizations.of(context).title),
                 )
               ]),
               Container(
