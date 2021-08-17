@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'SplashScreen.dart';
 import 'providerlangTheme.dart';
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  runApp(ChangeNotifierProvider(
+      child: MyApp(),
+      create: (BuildContext context) =>
+          proLangThm(((prefs.getBool("isDark")??false)))
+  ));
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(create: (buildContext)=>proLangThm(),
-    builder: (buildContext,widget){
-      final provider=Provider.of<proLangThm>(buildContext);
+    return Consumer<proLangThm>(builder: (context, theme, child) {
       return MaterialApp(
-        themeMode: provider.get_themeMode(),
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
       );
     });
-
   }
 }
-
-
