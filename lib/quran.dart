@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:quran/providerlangTheme.dart';
 import 'IslamyText.dart';
 import 'LoadNamesList.dart';
 
@@ -9,13 +11,18 @@ class SurasName extends StatefulWidget {
 }
 
 class _SurasNameState extends State<SurasName> {
+  late proLangThm provider;
+
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<proLangThm>(context);
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/2.0x/bg3@2x.png"),
+            image: AssetImage(provider.isDark()
+                ? "assets/images/Dark/bg1@2x.png"
+                : "assets/images/2.0x/bg2@2x.png"),
             fit: BoxFit.fill),
       ),
       child: Center(
@@ -34,12 +41,32 @@ class _SurasNameState extends State<SurasName> {
             ),
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Color(0xFFB7935F)),
-              ),
+                  border: Border(
+                      top: BorderSide(
+                          color: provider.isDark()
+                              ? Color(0xFFFACC1D)
+                              : Color(0xFFB7935F),
+                          width: 3),
+                      bottom: BorderSide(
+                          color: provider.isDark()
+                              ? Color(0xFFFACC1D)
+                              : Color(0xFFB7935F),
+                          width: 3))),
               child: Row(
                 children: [
-                  Expanded(child: _Labels('عدد الآيات')),
-                  Expanded(child: _Labels('اسم السورة'))],),
+                  Expanded(
+                      child: Container(
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  right: BorderSide(
+                                      color: provider.isDark()
+                                          ? Color(0xFFFACC1D)
+                                          : Color(0xFFB7935F),
+                                      width: 3))),
+                          child: _Labels('عدد الآيات'))),
+                  Expanded(child: _Labels('اسم السورة'))
+                ],
+              ),
             ),
             Expanded(child: ReadFrmFileStateState('assets/Texts/Names.txt')),
           ]),
@@ -47,16 +74,16 @@ class _SurasNameState extends State<SurasName> {
       ),
     ));
   }
-}
 
-_Labels(String labels) {
-  return Text(
-    labels,
-    style: TextStyle(
-      fontFamily: 'ElMessiri',
-      fontWeight: FontWeight.w400,
-      fontSize: 25,
-    ),
-    textAlign: TextAlign.center,
-  );
+  _Labels(String labels) {
+    return Text(
+      labels,
+      style: TextStyle(
+          fontFamily: 'ElMessiri',
+          fontWeight: FontWeight.w400,
+          fontSize: 25,
+          color: provider.isDark() ? Colors.white : Colors.black),
+      textAlign: TextAlign.center,
+    );
+  }
 }

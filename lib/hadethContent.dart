@@ -14,60 +14,10 @@ class hadeth_content extends StatefulWidget {
 class _hadeth_contentState extends State<hadeth_content> {
   String data = "";
   // ignore: deprecated_member_use
-  late List<String> Ahadth;
-  final List<dynamic> title = [
-    "الحديث الاول",
-    "الحديث الثانى",
-    "الحديث الثالث",
-    "الحديث الرابع",
-    "الحديث الخامس",
-    "الحديث السادس",
-    "الحديث السابع",
-    "الحديث الثامن",
-    "الحديث التاسع",
-    "الحديث العاشر",
-    "الحديث الحادى عشر",
-    "الحديث الثانى عشر",
-    "الحديث الثالث عشر",
-    "الحديث الرابع عشر",
-    "الحديث الخامس عشر",
-    "الحديث السادس عشر",
-    "الحديث السابع عشر",
-    "الحديث الثامن عشر",
-    "الحديث التاسع عشر",
-    "الحديث العشرون",
-    "الحديث الحادى والعشرون",
-    "الحديث الثانى والعشرون",
-    "الحديث الثالث والعشرون",
-    "الحديث الرابع والعشرون",
-    "الحديث الخامس والعشرون",
-    "الحديث السادس والعشرون ",
-    "الحديث السابع والعشرون ",
-    "الحديث الثامن والعشرون ",
-    "الحديث التاسع والعشرون ",
-    "الحديث الثلاثون ",
-    " الحديث الحادى والثلاثون",
-    "الحديث الثانى والثلاثون ",
-    "الحديث الثالث و الثلاثون",
-    "الحديث الرابع والثلاثون",
-    "الحديث الخامس والثلاثون",
-    "الحديث السادس و الثلاثةن",
-    "الحديث السابع و الثلاثون",
-    "الحديث الثامن والثلاثون",
-    "الحديث التاسع و الثلاثون ",
-    "الحديث الاربعون ",
-    "الحديث الحادى والاربعون ",
-    "الحديث الثانى والاربعون",
-    "الحديث والاربعون ",
-    "الحديث الرابع والاربعون",
-    "الحديث الخامس والاربعون ",
-    "الحديث السادس والاربعون",
-    "الحديث السابع والاربعون",
-    "الحديث الثامن والاربعون ",
-    "الحديث التاسع والاربعون ",
-    "الحديث الخمسون"
-  ];
+     var Ahadth=[];
+
   Future<void> loadAsset() async {
+
     String load;
     load = await rootBundle.loadString('assets/Texts/ahadeth.txt');
     setState(() {
@@ -125,13 +75,19 @@ class _hadeth_contentState extends State<hadeth_content> {
                             bottom: BorderSide(
                                 color: Color(0xFFB7935F), width: 2)),
                       ),
-                      child: Text(title[widget.index],
-                          style: TextStyle(
-                              fontSize: 30,
-                              fontFamily: 'ReemKufi',
-                              fontWeight: FontWeight.w500),
-                          textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.center)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text( Ahadth[widget.index].substring(0,
+                              Ahadth[widget.index].indexOf('\n')),
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontFamily: 'ReemKufi',
+                                  fontWeight: FontWeight.w500),
+                              textDirection: TextDirection.rtl,
+                              textAlign: TextAlign.center),
+                        ],
+                      )),
                   Expanded(
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,

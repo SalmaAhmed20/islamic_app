@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:quran/providerlangTheme.dart';
 
 import 'IslamyText.dart';
 
@@ -18,7 +21,7 @@ class contant extends StatefulWidget {
 
 class _contantState extends State<contant> {
   String data = '';
-
+  late proLangThm provider;
   //String Titlename = '';
 
   fetchFileData() async {
@@ -38,11 +41,14 @@ class _contantState extends State<contant> {
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<proLangThm>(context);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: new AssetImage("assets/images/3.0x/bg3@3x.png"),
+                  image: new AssetImage(provider.isDark()
+                      ? "assets/images/Dark/bg1@2x.png"
+                      : "assets/images/2.0x/bg2@2x.png"),
                   fit: BoxFit.fill),
             ),
             child: Center(
@@ -55,12 +61,15 @@ class _contantState extends State<contant> {
                         Icons.arrow_back,
                         textDirection: TextDirection.ltr,
                         size: 30,
-                        color: Colors.black87,
+                        color:
+                            provider.isDark() ? Colors.white : Colors.black87,
                       ),
-                      onPressed: () {Navigator.pop(context);},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(90,0,0,0),
+                      padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
                       child: IslamyText("إسلامي"),
                     )
                   ]),
@@ -70,25 +79,38 @@ class _contantState extends State<contant> {
                       height: MediaQuery.of(context).size.height / 1.2,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage("assets/images/2.0x/Path 2@2x.png"),
+                              image: AssetImage(provider.isDark()
+                                  ? "assets/images/Dark/Component 1 – 1@2x.png"
+                                  : "assets/images/2.0x/Path 2@2x.png"),
                               fit: BoxFit.fill)
-                        //borderRadius: BorderRadius.all(Radius.circular(25))
-                      ),
+                          //borderRadius: BorderRadius.all(Radius.circular(25))
+                          ),
                       child: Column(children: <Widget>[
                         SizedBox(height: 20),
                         Container(
                             decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(
-                                      color: Color(0xFFB7935F), width: 2)),
+                                      color: provider.isDark()
+                                          ? Color(0xFFFACC1D)
+                                          : Color(0xFFB7935F),
+                                      width: 1)),
                             ),
-                            child: Text("سـورة" + widget.nameofSura,
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    fontFamily: 'ReemKufi',
-                                    fontWeight: FontWeight.w500),
-                                textDirection: TextDirection.rtl,
-                                textAlign: TextAlign.center)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("سـورة" + widget.nameofSura,
+                                    style: TextStyle(
+                                        fontSize: 25,
+                                        fontFamily: 'ReemKufi',
+                                        fontWeight: FontWeight.w500,
+                                        color: provider.isDark()
+                                            ? Color(0xFFFACC1D)
+                                            : Colors.black),
+                                    textDirection: TextDirection.rtl,
+                                    textAlign: TextAlign.center),
+                              ],
+                            )),
                         SizedBox(height: 20),
                         Expanded(
                           child: SingleChildScrollView(
@@ -101,8 +123,11 @@ class _contantState extends State<contant> {
                                       "\n\n" +
                                       parse(data),
                                   style: TextStyle(
-                                      fontSize: 26,
-                                      fontFamily: 'DecoType Thuluth'),
+                                      fontSize: 20,
+                                      fontFamily: 'DecoType Thuluth',
+                                      color: provider.isDark()
+                                          ? Color(0xFFFACC1D)
+                                          : Colors.black),
                                   textDirection: TextDirection.rtl,
                                   textAlign: TextAlign.center),
                             ),

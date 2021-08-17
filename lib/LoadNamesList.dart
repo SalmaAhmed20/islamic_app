@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'SuraContent.dart';
+import 'providerlangTheme.dart';
 
 class ReadFrmFileStateState extends StatefulWidget {
   final String path;
@@ -13,6 +15,7 @@ class ReadFrmFileStateState extends StatefulWidget {
 class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
   List<String> Names = [];
   List<String> Numbers = [];
+  late proLangThm provider;
   Future<List<String>> _loadSuras() async {
     String Path = widget.path;
     List<String> name = [];
@@ -21,9 +24,9 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
       q = q.replaceAll('"', '');
       name = q.split(',');
     });
-      await rootBundle.loadString('assets/Texts/sura_size.txt').then((num) {
-        Numbers = num.split(' ');
-      });
+    await rootBundle.loadString('assets/Texts/sura_size.txt').then((num) {
+      Numbers = num.split(' ');
+    });
     return name;
   }
 
@@ -44,6 +47,7 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<proLangThm>(context);
     return ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
@@ -55,29 +59,41 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => contant('${index+1}',Names[index])));
+                        builder: (context) =>
+                            contant('${index + 1}', Names[index])));
               },
               child: Row(
                 children: [
                   Expanded(
-              child:  new Text(Numbers[index],
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: 'ReemKufi',
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.center)
-                ),
+                    child: Container(
+                      decoration: BoxDecoration(
+              border: Border(
+              right: BorderSide(
+              color: provider.isDark()
+                    ? Color(0xFFFACC1D)
+                    : Color(0xFFB7935F),
+                width: 3))),
+                      child: new Text(Numbers[index],
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontFamily: 'ReemKufi',
+                                color: provider.isDark()
+                                    ? Colors.white
+                                    : Colors.black,
+                                fontWeight: FontWeight.w500),
+                            textAlign: TextAlign.center),
+                    ),
+                  ),
                   Expanded(
-                    child: new Text(
-                         Names[index] ,
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: 'ReemKufi',
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.center)
-                 ),
+                      child: new Text(Names[index],
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontFamily: 'ReemKufi',
+                              color: provider.isDark()
+                                  ? Colors.white
+                                  : Colors.black,
+                              fontWeight: FontWeight.w500),
+                          textAlign: TextAlign.center)),
                 ],
               ),
             ),

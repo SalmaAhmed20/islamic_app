@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class proLangThm extends ChangeNotifier {
-  ThemeMode _themeMode = ThemeMode.light;
+  ThemeMode _themeMode = ThemeMode.dark;
+  //static final ThemeData light = ThemeData();
   void toggleTheme() {
     print("light");
     if (this._themeMode == ThemeMode.light)
