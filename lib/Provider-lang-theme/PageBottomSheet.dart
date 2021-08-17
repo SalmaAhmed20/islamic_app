@@ -17,7 +17,7 @@ class _PageBottomSheetState extends State<PageBottomSheet> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text('Language'),
               onPressed: () {
                 flag="language";
@@ -26,7 +26,7 @@ class _PageBottomSheetState extends State<PageBottomSheet> {
               },
             ),
             Padding(padding: EdgeInsets.symmetric(vertical:12,),),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Theme'),
               onPressed: () {
                 flag="Themes";
