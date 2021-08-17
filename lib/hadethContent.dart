@@ -48,7 +48,7 @@ class _hadeth_contentState extends State<hadeth_content> {
               image: DecorationImage(
                   image: AssetImage(provider.isDark()
                       ? "assets/images/Dark/bg1@2x.png"
-                      : "assets/images/2.0x/bg2@2x.png"),
+                      : "assets/images/2.0x/bg3@2x.png"),
                   fit: BoxFit.fill),
             ),
             child: Center(
