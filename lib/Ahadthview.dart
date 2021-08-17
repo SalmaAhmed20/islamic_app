@@ -72,7 +72,8 @@ class view extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => hadeth_content(index)),
+                                    builder: (context) =>
+                                        hadeth_content(index)),
                               );
                             },
                           ),

@@ -14,7 +14,7 @@ class hadeth_content extends StatefulWidget {
 class _hadeth_contentState extends State<hadeth_content> {
   String data = "";
   // ignore: deprecated_member_use
-  List<String> Ahadth = new List(50);
+  late List<String> Ahadth;
   final List<dynamic> title = [
     "الحديث الاول",
     "الحديث الثانى",
@@ -140,9 +140,9 @@ class _hadeth_contentState extends State<hadeth_content> {
                         child: Container(
                           margin: EdgeInsets.all(10),
                           child: Text(
-                              Ahadth[widget.index]?.substring(
-                                  Ahadth[widget.index]?.indexOf('\n'),
-                                  Ahadth[widget.index]?.length)??"load",
+                              Ahadth[widget.index].substring(
+                                  Ahadth[widget.index].indexOf('\n'),
+                                  Ahadth[widget.index].length),
                               style: TextStyle(
                                   fontSize: 26, fontFamily: 'DecoType Thuluth'),
                               textDirection: TextDirection.rtl,

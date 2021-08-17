@@ -10,7 +10,7 @@ class BtmNavBar extends StatefulWidget {
 }
 
 class _BtmNavBarState extends State<BtmNavBar> {
-  int _currentIndex = 3;
+  int _currentIndex = 4;
 //put here your pages
   List _screens = [
     SettingPage(),
@@ -24,7 +24,6 @@ class _BtmNavBarState extends State<BtmNavBar> {
       _currentIndex = value;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
