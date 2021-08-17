@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'providerlangTheme.dart';
 
 class ThemeAndLanguage {
@@ -19,7 +18,7 @@ class ThemeAndLanguage {
                   ? (bottomSheetLanguage(context))
                   : bottomSheetTheme(context),
               decoration: BoxDecoration(
-                  color: Theme.of(context).canvasColor,
+                  color: provider.isDark()?Color(0xFF141A2E):Color(0x59FB7935F),
                   borderRadius: BorderRadius.only(
                     topLeft: const Radius.circular(10),
                     topRight: const Radius.circular(10),
@@ -41,8 +40,8 @@ class ThemeAndLanguage {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20.0, fontFamily: 'ElMessiri', shadows: [
               Shadow(
-                  color: Colors.black26, offset: Offset(10, 5), blurRadius: 5)
-            ]),
+                  color: provider.isDark()?Colors.white38:Colors.black26, offset: Offset(10, 5), blurRadius: 5)
+            ],color: provider.isDark()?Colors.white38:Colors.black87,),
           ),
           onTap: () {
           },
@@ -53,8 +52,9 @@ class ThemeAndLanguage {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20.0, fontFamily: 'ElMessiri', shadows: [
               Shadow(
-                  color: Colors.black26, offset: Offset(10, 5), blurRadius: 5)
-            ]),
+                  color: provider.isDark()?Colors.white38:Colors.black26, offset: Offset(10, 5), blurRadius: 5)
+            ],color: provider.isDark()?Colors.white38:Colors.black87,
+            ),
           ),
           onTap: (){}
         )
@@ -73,8 +73,8 @@ class ThemeAndLanguage {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20.0, fontFamily: 'ElMessiri', shadows: [
               Shadow(
-                  color: Colors.black26, offset: Offset(10, 5), blurRadius: 5)
-            ]),
+                  color: provider.isDark()?Colors.white38:Colors.black26, offset: Offset(10, 5), blurRadius: 5)
+            ],color: provider.isDark()?Colors.white38:Colors.white,),
           ),
           onTap: () {
             if(provider.isDark())provider.toggleTheme();
@@ -86,8 +86,8 @@ class ThemeAndLanguage {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20.0, fontFamily: 'ElMessiri', shadows: [
               Shadow(
-                  color: Colors.black26, offset: Offset(10, 5), blurRadius: 5)
-            ]),
+                  color: provider.isDark()?Colors.white38:Colors.black26, offset: Offset(10, 5), blurRadius: 5)
+            ],color: provider.isDark()?Colors.amber:Colors.black87,),
           ),
           onTap: ()
             {
