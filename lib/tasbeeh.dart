@@ -120,13 +120,13 @@ class _tasbeehState extends State<tasbeeh> {
         i++;
         rotate = 0;
       }
-      if (i == 0) typeTasbeeh = 'سبحان الله';
-      if (i == 1) typeTasbeeh = 'الله اكبر';
-      if (i == 2) typeTasbeeh = 'لا اله الا الله';
+      if (i == 0) typeTasbeeh = AppLocalizations.of(context).title6;
+      if (i == 1) typeTasbeeh = AppLocalizations.of(context).title9;
+      if (i == 2) typeTasbeeh = AppLocalizations.of(context).title10;
     });
     if (i == 3) {
       i = 0;
-      typeTasbeeh = 'سبحان الله';
+      typeTasbeeh = AppLocalizations.of(context).title6;
     }
   }
 }

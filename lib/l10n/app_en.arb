@@ -1,13 +1,13 @@
 {
-  "title": "Islami",
+  "title": "Islamy",
   "@title": {
     "description": "The conventional newborn programmer greeting"
   },
-  "title2": "ahadeth",
+  "title2": "Ahadeth",
   "@title2": {
     "description": "The conventional newborn programmer greeting"
   },
-  "title3": "alhadeth number",
+  "title3": "Alhadeth number",
   "@title3": {
     "description": "The conventional newborn programmer greeting"
   },
@@ -23,12 +23,44 @@
   "@title6": {
     "description": "The conventional newborn programmer greeting"
   },
-  "title7": "number of praises",
+  "title7": "Number of praises",
   "@title7": {
     "description": "The conventional newborn programmer greeting"
   },
   "title8": "Holy Quran Radio",
   "@title8": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title9": "Allah is the greatest",
+  "@title9": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title10": "No God except Allah ",
+  "@title10": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title11": "language ",
+  "@title11": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title12": "Theme ",
+  "@title12": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title13": "Setting ",
+  "@title13": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title14": "Radio ",
+  "@title14": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title15": "Praise",
+  "@title15": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title16": " Quran",
+  "@title16": {
     "description": "The conventional newborn programmer greeting"
   }
 }

@@ -4,6 +4,7 @@ import 'radio.dart';
 import 'tasbeeh.dart';
 import 'quran.dart';
 import 'SettingPage.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class BtmNavBar extends StatefulWidget {
   @override
   _BtmNavBarState createState() => _BtmNavBarState();
@@ -42,23 +43,23 @@ class _BtmNavBarState extends State<BtmNavBar> {
         iconSize: 40,
         items: [
           BottomNavigationBarItem(
-            label: "الاعدادات",
+            label: AppLocalizations.of(context).title13,
             icon: Icon(Icons.settings),
           ),
           BottomNavigationBarItem(
-            label: "الأذاعة",
+            label: AppLocalizations.of(context).title14,
             icon: ImageIcon(AssetImage("assets/icons/3.0x/radio@3x.png")),
           ),
           BottomNavigationBarItem(
-            label: "التسبيح",
+            label: AppLocalizations.of(context).title15,
             icon: ImageIcon(AssetImage("assets/icons/3.0x/sebha_blue@3x.png")),
           ),
           BottomNavigationBarItem(
-            label: "الأحاديث",
+            label: AppLocalizations.of(context).title2,
             icon: ImageIcon(AssetImage("assets/icons/3.0x/Group 6@3x.png")),
           ),
           BottomNavigationBarItem(
-            label: "القرآن",
+            label: AppLocalizations.of(context).title16,
             icon: ImageIcon(AssetImage('assets/icons/3.0x/quran@3x.png')),
           ),
         ],
