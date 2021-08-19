@@ -14,7 +14,7 @@ class _tasbeehState extends State<tasbeeh> {
   late ProviderLangTheme provider;
   int counter = 0;
   int i = 0, rotate = 0;
-  String typeTasbeeh ='';
+  late String typeTasbeeh;
 
   @override
   Widget build(BuildContext context) {
@@ -133,14 +133,14 @@ class _tasbeehState extends State<tasbeeh> {
         i++;
         rotate = 0;
       }
-
       if (i == 0) typeTasbeeh = AppLocalizations.of(context)!.title6;
       if (i == 1) typeTasbeeh = AppLocalizations.of(context)!.title9;
       if (i == 2) typeTasbeeh = AppLocalizations.of(context)!.title10;
+      if (i == 3) {
+        i = 0;
+        typeTasbeeh = AppLocalizations.of(context)!.title6;
+      }
     });
-    if (i == 3) {
-      i = 0;
-      typeTasbeeh = AppLocalizations.of(context)!.title6;
-    }
+
   }
 }
