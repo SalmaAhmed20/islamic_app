@@ -12,7 +12,7 @@ Future<void> main() async {
   runApp(ChangeNotifierProvider(
       child: MyApp(),
       create: (BuildContext context) =>
-          ProviderLangTheme(((prefs.getBool("isDark") ?? false)))));
+          ProviderLangTheme(((prefs.getBool("isDark") ?? false)),prefs.getBool("isArab") ?? true)));
 }
 
 class MyApp extends StatelessWidget {

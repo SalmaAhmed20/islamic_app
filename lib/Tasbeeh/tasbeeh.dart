@@ -3,7 +3,6 @@ import 'package:quran/App/IslamyText.dart';
 import 'seb7a.dart';
 import 'package:provider/provider.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class tasbeeh extends StatefulWidget {
   @override
@@ -136,11 +135,10 @@ class _tasbeehState extends State<tasbeeh> {
       if (i == 0) typeTasbeeh = AppLocalizations.of(context)!.title6;
       if (i == 1) typeTasbeeh = AppLocalizations.of(context)!.title9;
       if (i == 2) typeTasbeeh = AppLocalizations.of(context)!.title10;
-      if (i == 3) {
-        i = 0;
-        typeTasbeeh = AppLocalizations.of(context)!.title6;
-      }
     });
-
+    if (i == 3) {
+      i = 0;
+      typeTasbeeh = AppLocalizations.of(context)!.title6;
+    }
   }
 }
