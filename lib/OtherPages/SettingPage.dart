@@ -60,7 +60,7 @@ class _setting extends State<SettingPage> {
                               child: Container(
 
                                 padding: EdgeInsets.symmetric(vertical: 15),
-                                child: _Labels(AppLocalizations.of(context)!.title17),
+                                child: _Labels(AppLocalizations.of(context)!.title12),
                                 decoration: BoxDecoration(
                                   color: Color(0x59FB7935F),
                                   borderRadius: BorderRadius.circular(15),
