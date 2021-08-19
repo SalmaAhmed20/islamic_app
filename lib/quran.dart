@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'IslamyText.dart';
 import 'LoadNamesList.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SurasName extends StatefulWidget {
   @override
@@ -22,7 +21,7 @@ class _SurasNameState extends State<SurasName> {
       child: Center(
         child: SafeArea(
           child: Column(children: [
-            Row(children: [Expanded(child: IslamyText(AppLocalizations.of(context).title))]),
+            Row(children: [Expanded(child: IslamyText("إسلامي"))]),
             Row(
               children: [
                 Expanded(
@@ -39,8 +38,8 @@ class _SurasNameState extends State<SurasName> {
               ),
               child: Row(
                 children: [
-                  Expanded(child: _Labels(AppLocalizations.of(context).title4)),
-                  Expanded(child: _Labels(AppLocalizations.of(context).title5))],),
+                  Expanded(child: _Labels('عدد الآيات')),
+                  Expanded(child: _Labels('اسم السورة'))],),
             ),
             Expanded(child: ReadFrmFileStateState('assets/Texts/Names.txt')),
           ]),

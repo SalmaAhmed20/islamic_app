@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'Ahadthview.dart';
-import 'radio.dart';
-import 'tasbeeh.dart';
-import 'quran.dart';
-import 'SettingPage.dart';
+import 'package:provider/provider.dart';
+import '../HadethScreen/Ahadthview.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
+import '../OtherPages/radio.dart';
+import '../Tasbeeh/tasbeeh.dart';
+import '../FirstScreen/quran.dart';
+import '../OtherPages/SettingPage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class BtmNavBar extends StatefulWidget {
   @override
   _BtmNavBarState createState() => _BtmNavBarState();
 }
 
 class _BtmNavBarState extends State<BtmNavBar> {
-  int _currentIndex = 3;
+  late proLangThm provider;
+  int _currentIndex = 4;
 //put here your pages
   List _screens = [
     SettingPage(),
@@ -25,22 +29,22 @@ class _BtmNavBarState extends State<BtmNavBar> {
       _currentIndex = value;
     });
   }
-
   @override
   Widget build(BuildContext context) {
+    provider =Provider.of<proLangThm>(context);
     return Scaffold(
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: _updateIndex,
-        backgroundColor: Color(0xFFB7935F),
+        backgroundColor: provider.isDark()?Color(0xFF141A2E):Color(0xFFB7935F),
         unselectedItemColor: Color(0xFFF8F8F8),
-        selectedItemColor: Colors.black,
-        showUnselectedLabels: false,
-        selectedFontSize: 12,
-        selectedLabelStyle: TextStyle(fontFamily: 'JF Flat'),
-        iconSize: 40,
+         selectedItemColor:provider.isDark()?Color(0xFFFBC927) :Colors.black,
+         showUnselectedLabels: false,
+         selectedFontSize: 12,
+         selectedLabelStyle: TextStyle(fontFamily: 'JF Flat'),
+         iconSize: 40,
         items: [
           BottomNavigationBarItem(
             label: AppLocalizations.of(context).title13,
@@ -66,4 +70,5 @@ class _BtmNavBarState extends State<BtmNavBar> {
       ),
     );
   }
+
 }

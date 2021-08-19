@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:quran/IslamyText.dart';
+import 'package:quran/App/IslamyText.dart';
+import 'package:provider/provider.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class radio extends StatelessWidget {
+  late proLangThm provider;
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<proLangThm>(context);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/2.0x/bg3@2x.png"),
+              image: AssetImage(provider.isDark()
+             ? "assets/images/Dark/bg1@2x.png"
+              :"assets/images/2.0x/bg3@2x.png"),
               fit: BoxFit.fill),
+
         ),
         child: SafeArea(
           child: Column(
@@ -31,7 +38,7 @@ class radio extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        AppLocalizations.of(context).title8,
+                        'إذاعة القرآن الكريم',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,

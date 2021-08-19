@@ -2,21 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'IslamyText.dart';
-import 'hadethContent.dart';
-import 'package:quran/providerlangTheme.dart';
 import 'package:provider/provider.dart';
 
+import '../App/IslamyText.dart';
+import 'hadethContent.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
+import 'package:provider/provider.dart';
 
 class view extends StatelessWidget {
   providerlangTheme provider=new providerlangTheme();
+  late proLangThm provider;
   @override
   Widget build(BuildContext context) {
     Provider.of<providerlangTheme>(context);
+    provider = Provider.of<proLangThm>(context);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/2.0x/bg3@2x.png"),
+                  image: AssetImage(provider.isDark()
+                      ? "assets/images/Dark/bg1@2x.png"
+                      :"assets/images/2.0x/bg3@2x.png"),
                   fit: BoxFit.fill),
             ),
             child: Center(
@@ -36,7 +42,13 @@ class view extends StatelessWidget {
               ),
               Container(
                   decoration: BoxDecoration(
-                    border: Border.all(color: Color(0xFFB7935F)),
+                    border: Border(top:BorderSide(color: provider.isDark()
+                        ? Color(0xFFFACC1D)
+                        : Color(0xFFB7935F),width: 3),  bottom: BorderSide(
+                        color: provider.isDark()
+                            ? Color(0xFFFACC1D)
+                            : Color(0xFFB7935F),
+                        width: 3)),
                   ),
                   child: Row(children: [
                     Expanded(
@@ -44,8 +56,11 @@ class view extends StatelessWidget {
                       AppLocalizations.of(context).title2,
                       style: TextStyle(
                         fontFamily: 'ElMessiri',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 30,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 25,
+                          color: provider.isDark()
+                              ? Colors.white:
+                              Colors.black
                       ),
                       textAlign: TextAlign.center,
                     )),
@@ -67,9 +82,11 @@ class view extends StatelessWidget {
                               AppLocalizations.of(context).title3+"$index2",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                                  fontSize: 25,
+                                  color: provider.isDark()
+                                      ? Colors.white:
+                                  Colors.black,
+                                  fontWeight: FontWeight.w600,
                                   letterSpacing: 2.0,
                                   fontFamily: 'ReemKufi'),
                             ),
