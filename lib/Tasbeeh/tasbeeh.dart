@@ -3,20 +3,22 @@ import 'package:quran/App/IslamyText.dart';
 import 'seb7a.dart';
 import 'package:provider/provider.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class tasbeeh extends StatefulWidget {
   @override
   _tasbeehState createState() => _tasbeehState();
 }
 
 class _tasbeehState extends State<tasbeeh> {
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   int counter = 0;
   int i = 0, rotate = 0;
-  String typeTasbeeh = 'سبحان الله';
+  late String typeTasbeeh;
+
   @override
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
+    String typeTasbeeh = AppLocalizations.of(context)!.title6;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -32,14 +34,14 @@ class _tasbeehState extends State<tasbeeh> {
             children: [
               Row(children: [
                 Expanded(
-                  child:IslamyText('إسلامي')
+                  child:IslamyText(AppLocalizations.of(context)!.title)
                 ),
               ]),
               seb7a(degreeOfRotate(rotate)),
               Container(
                 //margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                 child: Text(
-                  'عدد التسبيحات',
+                  AppLocalizations.of(context)!.title7,
                   style: TextStyle(
                     color: provider.isDark()
                         ? Colors.white: Colors.black,
@@ -130,13 +132,13 @@ class _tasbeehState extends State<tasbeeh> {
         i++;
         rotate = 0;
       }
-      if (i == 0) typeTasbeeh = 'سبحان الله';
-      if (i == 1) typeTasbeeh = 'الله اكبر';
-      if (i == 2) typeTasbeeh = 'لا اله الا الله';
+      if (i == 0) typeTasbeeh = AppLocalizations.of(context)!.title6;
+      if (i == 1) typeTasbeeh = AppLocalizations.of(context)!.title9;
+      if (i == 2) typeTasbeeh = AppLocalizations.of(context)!.title10;
     });
     if (i == 3) {
       i = 0;
-      typeTasbeeh = 'سبحان الله';
+      typeTasbeeh = AppLocalizations.of(context)!.title6;
     }
   }
 }

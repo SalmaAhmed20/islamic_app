@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran/Provider-lang-theme/providerlangTheme.dart';
 
 import '../App/IslamyText.dart';
@@ -21,7 +22,7 @@ class contant extends StatefulWidget {
 
 class _contantState extends State<contant> {
   String data = '';
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   //String Titlename = '';
 
   fetchFileData() async {
@@ -41,7 +42,7 @@ class _contantState extends State<contant> {
 
   @override
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
@@ -55,24 +56,27 @@ class _contantState extends State<contant> {
                 child: SafeArea(
               child: Column(
                 children: [
-                  Row(children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.arrow_back,
-                        textDirection: TextDirection.ltr,
-                        size: 30,
-                        color:
-                            provider.isDark() ? Colors.white : Colors.black87,
+                  Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: Row(children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_back,
+                          textDirection: TextDirection.ltr,
+                          size: 30,
+                          color:
+                              provider.isDark() ? Colors.white : Colors.black87,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
-                      child: IslamyText("إسلامي"),
-                    )
-                  ]),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
+                        child: IslamyText(AppLocalizations.of(context)!.title),
+                      )
+                    ]),
+                  ),
                   SizedBox(height: 20),
                   Container(
                       width: MediaQuery.of(context).size.width / 1.3,

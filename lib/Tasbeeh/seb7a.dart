@@ -3,12 +3,12 @@ import 'package:provider/provider.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
 class seb7a extends StatelessWidget {
   degreeOfRotate Degree;
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   seb7a(this.Degree);
 
   @override
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return SafeArea(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

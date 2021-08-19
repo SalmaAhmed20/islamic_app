@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/Provider-lang-theme/providerlangTheme.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../App/IslamyText.dart';
 
 class hadeth_content extends StatefulWidget {
@@ -18,10 +18,10 @@ class _hadeth_contentState extends State<hadeth_content> {
   String Cont = "";
   String title = "";
   // ignore: deprecated_member_use
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   late List Ahadth;
 
-  Future<void> loadAsset() async {
+  Future<void> loadHadeth() async {
     String load;
     load = await rootBundle.loadString('assets/Texts/ahadeth.txt');
     setState(() {
@@ -36,12 +36,12 @@ class _hadeth_contentState extends State<hadeth_content> {
 
   void initState() {
     Ahadth = List.empty();
-    loadAsset();
+    loadHadeth();
     super.initState();
   }
 
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
@@ -54,23 +54,26 @@ class _hadeth_contentState extends State<hadeth_content> {
             child: Center(
                 child: SafeArea(
                     child: Column(children: [
-              Row(children: [
-                IconButton(
-                  icon: Icon(
-                    Icons.arrow_back,
-                    textDirection: TextDirection.ltr,
-                    size: 30,
-                    color: provider.isDark() ? Colors.white : Colors.black87,
+              Directionality(
+                textDirection: TextDirection.ltr,
+                child: Row(children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_back,
+                      textDirection: TextDirection.ltr,
+                      size: 30,
+                      color: provider.isDark() ? Colors.white : Colors.black87,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
-                  child: IslamyText("إسلامي"),
-                )
-              ]),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
+                    child: IslamyText(AppLocalizations.of(context)!.title),
+                  )
+                ]),
+              ),
               Container(
                 width: MediaQuery.of(context).size.width / 1.3,
                 height: MediaQuery.of(context).size.height / 1.2,
