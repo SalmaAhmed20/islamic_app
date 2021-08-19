@@ -3,13 +3,13 @@ import 'package:provider/provider.dart';
 import 'providerlangTheme.dart';
 
 class ThemeAndLanguage {
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   void bottomsheets(String flag, BuildContext context) {
     showModalBottomSheet(
         context: context,
         elevation: 50.0,
         builder: (context) {
-          provider =Provider.of<proLangThm>(context);
+          provider =Provider.of<ProviderLangTheme>(context);
           return Container(
             color: Color(0xFF737373),
             height: 180,
@@ -29,7 +29,7 @@ class ThemeAndLanguage {
   }
 
   Column bottomSheetLanguage(BuildContext context) {
-
+    provider = Provider.of<ProviderLangTheme>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       // crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -44,6 +44,7 @@ class ThemeAndLanguage {
             ],color: provider.isDark()?Colors.white38:Colors.black87,),
           ),
           onTap: () {
+            provider.changeLanguage("en");
           },
         ),
         ListTile(
@@ -56,7 +57,9 @@ class ThemeAndLanguage {
             ],color: provider.isDark()?Colors.white38:Colors.black87,
             ),
           ),
-          onTap: (){}
+          onTap: (){
+            provider.changeLanguage("ar");
+          }
         )
       ],
     );

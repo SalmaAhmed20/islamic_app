@@ -15,7 +15,7 @@ class ReadFrmFileStateState extends StatefulWidget {
 class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
   List<String> Names = [];
   List<String> Numbers = [];
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   Future<List<String>> _loadSuras() async {
     String Path = widget.path;
     List<String> name = [];
@@ -47,7 +47,7 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
 
   @override
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
@@ -62,18 +62,32 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
                         builder: (context) =>
                             contant('${index + 1}', Names[index])));
               },
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-              border: Border(
-              right: BorderSide(
-              color: provider.isDark()
-                    ? Color(0xFFFACC1D)
-                    : Color(0xFFB7935F),
-                width: 3))),
-                      child: new Text(Numbers[index],
+              child: Directionality(
+              textDirection: TextDirection.ltr,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                border: Border(
+                right: BorderSide(
+                color: provider.isDark()
+                      ? Color(0xFFFACC1D)
+                      : Color(0xFFB7935F),
+                  width: 3))),
+                        child: new Text(Numbers[index],
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontFamily: 'ReemKufi',
+                                  color: provider.isDark()
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontWeight: FontWeight.w500),
+                              textAlign: TextAlign.center),
+                      ),
+                    ),
+                    Expanded(
+                        child: new Text(Names[index],
                             style: TextStyle(
                                 fontSize: 30,
                                 fontFamily: 'ReemKufi',
@@ -81,20 +95,9 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
                                     ? Colors.white
                                     : Colors.black,
                                 fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center),
-                    ),
-                  ),
-                  Expanded(
-                      child: new Text(Names[index],
-                          style: TextStyle(
-                              fontSize: 30,
-                              fontFamily: 'ReemKufi',
-                              color: provider.isDark()
-                                  ? Colors.white
-                                  : Colors.black,
-                              fontWeight: FontWeight.w500),
-                          textAlign: TextAlign.center)),
-                ],
+                            textAlign: TextAlign.center)),
+                  ],
+                ),
               ),
             ),
           );

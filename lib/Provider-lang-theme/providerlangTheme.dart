@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class proLangThm extends ChangeNotifier {
+class ProviderLangTheme extends ChangeNotifier {
+  String currentLocale='ar';
+  void changeLanguage(String lang)
+  {
+    if(currentLocale==lang)
+      return;
+    currentLocale=lang;
+    notifyListeners();
+
+  }
    late ThemeMode _themeMode ;
-   proLangThm( bool isdark)
+   ProviderLangTheme( bool isdark)
    {
      if(isdark) {
        this._themeMode=ThemeMode.dark;

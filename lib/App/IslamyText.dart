@@ -6,10 +6,10 @@ import '../Provider-lang-theme/providerlangTheme.dart';
 class IslamyText extends StatelessWidget {
   String Txt = '';
   IslamyText(this.Txt);
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   @override
   Widget build(BuildContext context) {
-    provider =Provider.of<proLangThm>(context);
+    provider =Provider.of<ProviderLangTheme>(context);
     return Text(
       Txt,
       style: TextStyle(

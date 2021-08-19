@@ -11,15 +11,15 @@ class tasbeeh extends StatefulWidget {
 }
 
 class _tasbeehState extends State<tasbeeh> {
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   int counter = 0;
   int i = 0, rotate = 0;
   String typeTasbeeh ='';
 
   @override
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
-    String typeTasbeeh = AppLocalizations.of(context).title6;
+    provider = Provider.of<ProviderLangTheme>(context);
+    String typeTasbeeh = AppLocalizations.of(context)!.title6;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -35,14 +35,14 @@ class _tasbeehState extends State<tasbeeh> {
             children: [
               Row(children: [
                 Expanded(
-                  child:IslamyText(AppLocalizations.of(context).title)
+                  child:IslamyText(AppLocalizations.of(context)!.title)
                 ),
               ]),
               seb7a(degreeOfRotate(rotate)),
               Container(
                 //margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                 child: Text(
-                  AppLocalizations.of(context).title7,
+                  AppLocalizations.of(context)!.title7,
                   style: TextStyle(
                     color: provider.isDark()
                         ? Colors.white: Colors.black,
@@ -133,13 +133,14 @@ class _tasbeehState extends State<tasbeeh> {
         i++;
         rotate = 0;
       }
-      if (i == 0) typeTasbeeh = AppLocalizations.of(context).title6;
-      if (i == 1) typeTasbeeh = AppLocalizations.of(context).title9;
-      if (i == 2) typeTasbeeh = AppLocalizations.of(context).title10;
+
+      if (i == 0) typeTasbeeh = AppLocalizations.of(context)!.title6;
+      if (i == 1) typeTasbeeh = AppLocalizations.of(context)!.title9;
+      if (i == 2) typeTasbeeh = AppLocalizations.of(context)!.title10;
     });
     if (i == 3) {
       i = 0;
-      typeTasbeeh = AppLocalizations.of(context).title6;
+      typeTasbeeh = AppLocalizations.of(context)!.title6;
     }
   }
 }

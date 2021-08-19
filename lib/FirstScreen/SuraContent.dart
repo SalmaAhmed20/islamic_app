@@ -22,7 +22,7 @@ class contant extends StatefulWidget {
 
 class _contantState extends State<contant> {
   String data = '';
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   //String Titlename = '';
 
   fetchFileData() async {
@@ -42,7 +42,7 @@ class _contantState extends State<contant> {
 
   @override
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
@@ -71,7 +71,7 @@ class _contantState extends State<contant> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
-                      child: IslamyText(AppLocalizations.of(context).title),
+                      child: IslamyText(AppLocalizations.of(context)!.title),
                     )
                   ]),
                   SizedBox(height: 20),

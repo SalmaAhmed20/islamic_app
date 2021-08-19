@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quran/Provider-lang-theme/ThemeAndLanguage.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/Provider-lang-theme/providerlangTheme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../App/IslamyText.dart';
 
 class SettingPage extends StatefulWidget {
@@ -9,11 +10,11 @@ class SettingPage extends StatefulWidget {
   _setting createState() => _setting();
 }
 class _setting extends State<SettingPage> {
-  late proLangThm provider;
+  late ProviderLangTheme provider;
 
   @override
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     ThemeAndLanguage _Thema = new ThemeAndLanguage();
     return Scaffold(
         body: Container(
@@ -21,7 +22,7 @@ class _setting extends State<SettingPage> {
               image: DecorationImage(
                   image: new AssetImage(provider.isDark()
                       ? "assets/images/Dark/bg1@2x.png"
-                      : "assets/images/2.0x/bg2@2x.png"),
+                      : "assets/images/2.0x/bg3@2x.png"),
                   fit: BoxFit.fill),
             ),
 
@@ -43,7 +44,7 @@ class _setting extends State<SettingPage> {
                               },
                               child: Container(
                                 margin: EdgeInsets.symmetric(vertical: 20),
-                                child: _Labels('Language'),
+                                child: _Labels(AppLocalizations.of(context)!.title11),
                                 decoration: BoxDecoration(
                                   color: Color(0x59FB7935F),
                                   borderRadius: BorderRadius.circular(15),
@@ -59,7 +60,7 @@ class _setting extends State<SettingPage> {
                               child: Container(
 
                                 padding: EdgeInsets.symmetric(vertical: 15),
-                                child: _Labels('Theme'),
+                                child: _Labels(AppLocalizations.of(context)!.title12),
                                 decoration: BoxDecoration(
                                   color: Color(0x59FB7935F),
                                   borderRadius: BorderRadius.circular(15),

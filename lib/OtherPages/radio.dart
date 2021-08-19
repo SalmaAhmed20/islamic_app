@@ -4,10 +4,10 @@ import 'package:provider/provider.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class radio extends StatelessWidget {
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   @override
   Widget build(BuildContext context) {
-    provider = Provider.of<proLangThm>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -24,7 +24,7 @@ class radio extends StatelessWidget {
               children: [
                 Row(children: [
                   Expanded(
-                   child: IslamyText(AppLocalizations.of(context).title),
+                   child: IslamyText(AppLocalizations.of(context)!.title),
                   )
                 ]),
                 SizedBox(height: 40),
@@ -38,9 +38,9 @@ class radio extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'إذاعة القرآن الكريم',
+                        AppLocalizations.of(context)!.title8,
                         style: TextStyle(
-                          color: Colors.black,
+                          color: provider.isDark()?Colors.white:Colors.black,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'ELMessiri',
                           fontSize: 23,
@@ -57,7 +57,7 @@ class radio extends StatelessWidget {
                       icon: ImageIcon(
                           AssetImage("assets/icons/2.0x/metro-next@2x.png")),
                       iconSize: 25,
-                      color: Color.fromRGBO(183, 147, 95, 0.9882352941176471),
+                      color: provider.isDark()?Color(0xFFFBC927):Color.fromRGBO(183, 147, 95, 0.9882352941176471),
                       onPressed: () {},
                     ),
                   ),
@@ -66,7 +66,7 @@ class radio extends StatelessWidget {
                       icon: ImageIcon(
                           AssetImage("assets/icons/2.0x/awesome-play@2x.png")),
                       iconSize: 40,
-                      color: Color.fromRGBO(183, 147, 95, 0.9882352941176471),
+                      color: provider.isDark()?Color(0xFFFBC927):Color.fromRGBO(183, 147, 95, 0.9882352941176471),
                       onPressed: () {},
                     ),
                   ),
@@ -75,7 +75,7 @@ class radio extends StatelessWidget {
                       icon: ImageIcon(AssetImage(
                           "assets/icons/2.0x/metro-next-right@2x.png")),
                       iconSize: 25,
-                      color: Color.fromRGBO(183, 147, 95, 0.9882352941176471),
+                      color:provider.isDark()?Color(0xFFFBC927):Color.fromRGBO(183, 147, 95, 0.9882352941176471),
                       onPressed: () {},
                     ),
                   ),

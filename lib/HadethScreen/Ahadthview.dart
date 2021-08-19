@@ -1,21 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'IslamyText.dart';
 import 'package:provider/provider.dart';
 
 import '../App/IslamyText.dart';
 import 'hadethContent.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
-import 'package:provider/provider.dart';
+
 
 class view extends StatelessWidget {
-  providerlangTheme provider=new providerlangTheme();
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   @override
   Widget build(BuildContext context) {
-    Provider.of<providerlangTheme>(context);
-    provider = Provider.of<proLangThm>(context);
+    Provider.of<ProviderLangTheme>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
@@ -28,7 +26,7 @@ class view extends StatelessWidget {
             child: Center(
                 child: SafeArea(
                     child: Column(children: [
-              Row(children: [Expanded(child: IslamyText(AppLocalizations.of(context).title))]),
+              Row(children: [Expanded(child: IslamyText(AppLocalizations.of(context)!.title))]),
               Row(
                 children: [
                   Expanded(
@@ -53,7 +51,7 @@ class view extends StatelessWidget {
                   child: Row(children: [
                     Expanded(
                         child: Text(
-                      AppLocalizations.of(context).title2,
+                      AppLocalizations.of(context)!.title2,
                       style: TextStyle(
                         fontFamily: 'ElMessiri',
                         fontWeight: FontWeight.w600,
@@ -79,7 +77,7 @@ class view extends StatelessWidget {
                             // contentPadding:,
 
                             title: Text(
-                              AppLocalizations.of(context).title3+"$index2",
+                              AppLocalizations.of(context)!.title3+"$index2",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 25,

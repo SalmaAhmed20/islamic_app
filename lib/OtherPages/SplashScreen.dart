@@ -10,7 +10,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  late proLangThm provider;
+  late ProviderLangTheme provider;
   @override
   void initState() {
     super.initState();
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Widget build(BuildContext context) {
-    provider =Provider.of<proLangThm>(context);
+    provider =Provider.of<ProviderLangTheme>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
