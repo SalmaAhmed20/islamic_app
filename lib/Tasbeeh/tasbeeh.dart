@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/App/IslamyText.dart';
 import 'seb7a.dart';
@@ -14,11 +15,10 @@ class _tasbeehState extends State<tasbeeh> {
   int counter = 0;
   int i = 0, rotate = 0;
   late String typeTasbeeh;
-
   @override
   Widget build(BuildContext context) {
     provider = Provider.of<ProviderLangTheme>(context);
-    String typeTasbeeh = AppLocalizations.of(context)!.title6;
+    typeTasbeeh = changeTypeTasbeeh(i);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -96,7 +96,7 @@ class _tasbeehState extends State<tasbeeh> {
                                     ? Colors.black:Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'ReemKufi',
-                                fontSize: 25)),
+                                fontSize: 22)),
                         style: ButtonStyle(
                           backgroundColor: provider.isDark()?MaterialStateProperty.all<Color>(
                             Color(0xFFFFDE37),
@@ -110,8 +110,8 @@ class _tasbeehState extends State<tasbeeh> {
                           )),
                         ),
                       ),
-                      height: 40,
-                      margin: EdgeInsets.fromLTRB(100, 40, 100, 30),
+
+                      margin: EdgeInsets.symmetric(vertical: 20,horizontal: 40),
                     ),
                   ),
                 ],
@@ -124,6 +124,7 @@ class _tasbeehState extends State<tasbeeh> {
   }
 
   void incrementCounter() {
+
     setState(() {
       counter++;
       rotate += 15;
@@ -132,13 +133,21 @@ class _tasbeehState extends State<tasbeeh> {
         i++;
         rotate = 0;
       }
-      if (i == 0) typeTasbeeh = AppLocalizations.of(context)!.title6;
-      if (i == 1) typeTasbeeh = AppLocalizations.of(context)!.title9;
-      if (i == 2) typeTasbeeh = AppLocalizations.of(context)!.title10;
     });
     if (i == 3) {
       i = 0;
-      typeTasbeeh = AppLocalizations.of(context)!.title6;
     }
   }
+  String changeTypeTasbeeh(int i)
+  {
+    if (i == 0) return typeTasbeeh = AppLocalizations.of(context)!.title6;
+    if (i == 1) return typeTasbeeh = AppLocalizations.of(context)!.title9;
+    if (i == 2) return typeTasbeeh = AppLocalizations.of(context)!.title10;
+    else
+      return typeTasbeeh = AppLocalizations.of(context)!.title6;
+
+  }
+
+
 }
+
