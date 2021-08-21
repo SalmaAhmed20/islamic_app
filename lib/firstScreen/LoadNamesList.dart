@@ -63,27 +63,27 @@ class _ReadFrmFileStateStateState extends State<ReadFrmFileStateState> {
                             contant('${index + 1}', Names[index])));
               },
               child: Directionality(
-              textDirection: TextDirection.ltr,
+                textDirection: TextDirection.ltr,
                 child: Row(
                   children: [
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                border: Border(
-                right: BorderSide(
-                color: provider.isDark()
-                      ? Color(0xFFFACC1D)
-                      : Color(0xFFB7935F),
-                  width: 3))),
+                            border: Border(
+                                right: BorderSide(
+                                    color: provider.isDark()
+                                        ? Color(0xFFFACC1D)
+                                        : Color(0xFFB7935F),
+                                    width: 3))),
                         child: new Text(Numbers[index],
-                              style: TextStyle(
-                                  fontSize: 30,
-                                  fontFamily: 'ReemKufi',
-                                  color: provider.isDark()
-                                      ? Colors.white
-                                      : Colors.black,
-                                  fontWeight: FontWeight.w500),
-                              textAlign: TextAlign.center),
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontFamily: 'ReemKufi',
+                                color: provider.isDark()
+                                    ? Colors.white
+                                    : Colors.black,
+                                fontWeight: FontWeight.w500),
+                            textAlign: TextAlign.center),
                       ),
                     ),
                     Expanded(

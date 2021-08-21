@@ -48,8 +48,8 @@ class _contantState extends State<contant> {
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: new AssetImage(provider.isDark()
-                      ? "assets/images/Dark/bg1@2x.png"
-                      : "assets/images/2.0x/bg3@2x.png"),
+                      ? "assets/images/Dark/darkbasicbg@2x.png"
+                      : "assets/images/2.0x/lightbasicbg@2x.png"),
                   fit: BoxFit.fill),
             ),
             child: Center(
@@ -72,7 +72,7 @@ class _contantState extends State<contant> {
                         },
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(115, 0, 0, 0),
                         child: IslamyText(AppLocalizations.of(context)!.title),
                       )
                     ]),
@@ -84,8 +84,8 @@ class _contantState extends State<contant> {
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(provider.isDark()
-                                  ? "assets/images/Dark/Component 1 – 1@2x.png"
-                                  : "assets/images/2.0x/Path 2@2x.png"),
+                                  ? "assets/images/Dark/darkcontentbg @2x.png"
+                                  : "assets/images/2.0x/lightcontentbg@2x.png"),
                               fit: BoxFit.fill)
                           //borderRadius: BorderRadius.all(Radius.circular(25))
                           ),

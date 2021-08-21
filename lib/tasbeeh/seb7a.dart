@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
+
 class seb7a extends StatelessWidget {
   degreeOfRotate Degree;
   late ProviderLangTheme provider;
@@ -17,8 +18,8 @@ class seb7a extends StatelessWidget {
             children: [
               Image(
                 image: AssetImage(provider.isDark()
-                    ?"assets/images/Dark/head of seb7a@2x.png"
-                    :"assets/images/2.0x/head of seb7a@2x.png"),
+                    ? "assets/images/Dark/head of seb7a@2x.png"
+                    : "assets/images/2.0x/head of seb7a@2x.png"),
                 width: 41,
                 height: 50,
               ),
@@ -27,14 +28,13 @@ class seb7a extends StatelessWidget {
                 child: Image(
                   image: AssetImage(provider.isDark()
                       ? "assets/images/Dark/body of seb7a@2x.png"
-                      :"assets/images/2.0x/body of seb7a@2x.png"),
+                      : "assets/images/2.0x/body of seb7a@2x.png"),
                   width: 205,
                   height: 200,
                 ),
               ),
             ],
           ),
-
         ],
       ),
     );

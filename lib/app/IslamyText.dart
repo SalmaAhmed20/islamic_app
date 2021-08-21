@@ -9,11 +9,11 @@ class IslamyText extends StatelessWidget {
   late ProviderLangTheme provider;
   @override
   Widget build(BuildContext context) {
-    provider =Provider.of<ProviderLangTheme>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return Text(
       Txt,
       style: TextStyle(
-          color: provider.isDark()?Colors.white:Colors.black,
+          color: provider.isDark() ? Colors.white : Colors.black,
           fontFamily: 'ELMessiri',
           fontWeight: FontWeight.bold,
           fontSize: 30),

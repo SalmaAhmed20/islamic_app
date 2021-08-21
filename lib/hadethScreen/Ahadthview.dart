@@ -4,9 +4,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../App/IslamyText.dart';
-import 'hadethContent.dart';
+import 'HadethContent.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
-
 
 class view extends StatelessWidget {
   late ProviderLangTheme provider;
@@ -19,14 +18,16 @@ class view extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(provider.isDark()
-                      ? "assets/images/Dark/bg1@2x.png"
-                      :"assets/images/2.0x/bg3@2x.png"),
+                      ? "assets/images/Dark/darkbasicbg@2x.png"
+                      : "assets/images/2.0x/lightbasicbg@2x.png"),
                   fit: BoxFit.fill),
             ),
             child: Center(
                 child: SafeArea(
                     child: Column(children: [
-              Row(children: [Expanded(child: IslamyText(AppLocalizations.of(context)!.title))]),
+              Row(children: [
+                Expanded(child: IslamyText(AppLocalizations.of(context)!.title))
+              ]),
               Row(
                 children: [
                   Expanded(
@@ -40,26 +41,28 @@ class view extends StatelessWidget {
               ),
               Container(
                   decoration: BoxDecoration(
-                    border: Border(top:BorderSide(color: provider.isDark()
-                        ? Color(0xFFFACC1D)
-                        : Color(0xFFB7935F),width: 3),  bottom: BorderSide(
-                        color: provider.isDark()
-                            ? Color(0xFFFACC1D)
-                            : Color(0xFFB7935F),
-                        width: 3)),
+                    border: Border(
+                        top: BorderSide(
+                            color: provider.isDark()
+                                ? Color(0xFFFACC1D)
+                                : Color(0xFFB7935F),
+                            width: 3),
+                        bottom: BorderSide(
+                            color: provider.isDark()
+                                ? Color(0xFFFACC1D)
+                                : Color(0xFFB7935F),
+                            width: 3)),
                   ),
                   child: Row(children: [
                     Expanded(
                         child: Text(
                       AppLocalizations.of(context)!.title2,
                       style: TextStyle(
-                        fontFamily: 'ElMessiri',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 25,
-                          color: provider.isDark()
-                              ? Colors.white:
-                              Colors.black
-                      ),
+                          fontFamily: 'ElMessiri',
+                          fontWeight: FontWeight.w600,
+                          fontSize: 25,
+                          color:
+                              provider.isDark() ? Colors.white : Colors.black),
                       textAlign: TextAlign.center,
                     )),
                   ])),
@@ -77,13 +80,13 @@ class view extends StatelessWidget {
                             // contentPadding:,
 
                             title: Text(
-                              AppLocalizations.of(context)!.title3+"$index2",
+                              AppLocalizations.of(context)!.title3 + "$index2",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 25,
                                   color: provider.isDark()
-                                      ? Colors.white:
-                                  Colors.black,
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 2.0,
                                   fontFamily: 'ReemKufi'),

@@ -9,6 +9,7 @@ class SettingPage extends StatefulWidget {
   @override
   _setting createState() => _setting();
 }
+
 class _setting extends State<SettingPage> {
   late ProviderLangTheme provider;
 
@@ -21,20 +22,17 @@ class _setting extends State<SettingPage> {
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: new AssetImage(provider.isDark()
-                      ? "assets/images/Dark/bg1@2x.png"
-                      : "assets/images/2.0x/bg3@2x.png"),
+                      ? "assets/images/Dark/darkbasicbg@2x.png"
+                      : "assets/images/2.0x/lightbasicbg@2x.png"),
                   fit: BoxFit.fill),
             ),
-
             child: SafeArea(
               child: Column(
                 children: [
-                  Row(children: [
-                    Expanded(child: IslamyText("إسلامي"))
-                  ]),
+                  Row(children: [Expanded(child: IslamyText(AppLocalizations.of(context)!.title))]),
                   Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 48, horizontal: 24),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 48, horizontal: 24),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
@@ -44,13 +42,13 @@ class _setting extends State<SettingPage> {
                               },
                               child: Container(
                                 margin: EdgeInsets.symmetric(vertical: 20),
-                                child: _Labels(AppLocalizations.of(context)!.title11),
+                                child: _Labels(
+                                    AppLocalizations.of(context)!.title11),
                                 decoration: BoxDecoration(
                                   color: Color(0x59FB7935F),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                                 padding: EdgeInsets.symmetric(vertical: 15),
-
                               ),
                             ),
                             InkWell(
@@ -58,9 +56,9 @@ class _setting extends State<SettingPage> {
                                 _Thema.bottomsheets("theme", context);
                               },
                               child: Container(
-
                                 padding: EdgeInsets.symmetric(vertical: 15),
-                                child: _Labels(AppLocalizations.of(context)!.title12),
+                                child: _Labels(
+                                    AppLocalizations.of(context)!.title12),
                                 decoration: BoxDecoration(
                                   color: Color(0x59FB7935F),
                                   borderRadius: BorderRadius.circular(15),
@@ -70,8 +68,7 @@ class _setting extends State<SettingPage> {
                           ])),
                 ],
               ),
-            )
-        ));
+            )));
   }
 
   _Labels(String labels) {

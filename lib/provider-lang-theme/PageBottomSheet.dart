@@ -7,10 +7,9 @@ class PageBottomSheet extends StatefulWidget {
 }
 
 class _PageBottomSheetState extends State<PageBottomSheet> {
-  String flag="language";
+  String flag = "language";
   final ThemeAndLanguage t = new ThemeAndLanguage();
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -20,18 +19,20 @@ class _PageBottomSheetState extends State<PageBottomSheet> {
             ElevatedButton(
               child: Text('Language'),
               onPressed: () {
-                flag="language";
+                flag = "language";
                 t.bottomsheets(flag, context);
-
               },
             ),
-            Padding(padding: EdgeInsets.symmetric(vertical:12,),),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 12,
+              ),
+            ),
             ElevatedButton(
               child: Text('Theme'),
               onPressed: () {
-                flag="Themes";
-                t.bottomsheets( flag,context);
-
+                flag = "Themes";
+                t.bottomsheets(flag, context);
               },
             )
           ],
@@ -39,6 +40,4 @@ class _PageBottomSheetState extends State<PageBottomSheet> {
       ),
     );
   }
-
-
 }

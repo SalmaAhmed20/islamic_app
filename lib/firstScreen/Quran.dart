@@ -22,14 +22,16 @@ class _SurasNameState extends State<SurasName> {
       decoration: BoxDecoration(
         image: DecorationImage(
             image: AssetImage(provider.isDark()
-                ? "assets/images/Dark/bg1@2x.png"
-                : "assets/images/2.0x/bg3@2x.png"),
+                ? "assets/images/Dark/darkbasicbg@2x.png"
+                : "assets/images/2.0x/lightbasicbg@2x.png"),
             fit: BoxFit.fill),
       ),
       child: Center(
         child: SafeArea(
           child: Column(children: [
-            Row(children: [Expanded(child: IslamyText(AppLocalizations.of(context)!.title))]),
+            Row(children: [
+              Expanded(child: IslamyText(AppLocalizations.of(context)!.title))
+            ]),
             Row(
               children: [
                 Expanded(
@@ -66,8 +68,10 @@ class _SurasNameState extends State<SurasName> {
                                             ? Color(0xFFFACC1D)
                                             : Color(0xFFB7935F),
                                         width: 3))),
-                            child: _Labels(AppLocalizations.of(context)!.title5))),
-                    Expanded(child: _Labels(AppLocalizations.of(context)!.title4))
+                            child:
+                                _Labels(AppLocalizations.of(context)!.title5))),
+                    Expanded(
+                        child: _Labels(AppLocalizations.of(context)!.title4))
                   ],
                 ),
               ),
