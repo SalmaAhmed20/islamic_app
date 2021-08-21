@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'BtmNavBar.dart';
+import 'package:provider/provider.dart';
+import '../App/BtmNavBar.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -8,6 +10,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late ProviderLangTheme provider;
   @override
   void initState() {
     super.initState();
@@ -18,10 +21,13 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Widget build(BuildContext context) {
+    provider = Provider.of<ProviderLangTheme>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/2.0x/bg2@2x.png"),
+          image: AssetImage(provider.isDark()
+              ? "assets/images/Dark/darksplashbg@2x.png"
+              : "assets/images/2.0x/Splashbg@2x.png"),
           fit: BoxFit.fill,
         ),
       ),
@@ -40,7 +46,9 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: SizedBox(
                       height: 200,
                       child: Image(
-                        image: AssetImage('assets/icons/3.0x/logo2@3x.png'),
+                        image: AssetImage(provider.isDark()
+                            ? 'assets/images/Dark/darklogosplash@3x.png'
+                            : 'assets/icons/3.0x/splashscreenicon@3x.png'),
                       ),
                     ),
                   ),
@@ -54,9 +62,14 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: SizedBox(
                     height: 120,
                     child: Image(
-                      image: AssetImage('assets/icons/3.0x/Group 7@3x.png'),),
-                  ),),
-              )])
+                      image: AssetImage(provider.isDark()
+                          ? 'assets/images/Dark/routesupervisior@3x.png'
+                          : 'assets/icons/3.0x/Routesupervisor@3x.png'),
+                    ),
+                  ),
+                ),
+              )
+            ])
           ],
         ),
       ),

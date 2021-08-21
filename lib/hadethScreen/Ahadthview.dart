@@ -1,23 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
-import 'IslamyText.dart';
-import 'hadethContent.dart';
+import '../App/IslamyText.dart';
+import 'HadethContent.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
 
 class view extends StatelessWidget {
+  late ProviderLangTheme provider;
   @override
   Widget build(BuildContext context) {
+    Provider.of<ProviderLangTheme>(context);
+    provider = Provider.of<ProviderLangTheme>(context);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/2.0x/bg3@2x.png"),
+                  image: AssetImage(provider.isDark()
+                      ? "assets/images/Dark/darkbasicbg@2x.png"
+                      : "assets/images/2.0x/lightbasicbg@2x.png"),
                   fit: BoxFit.fill),
             ),
             child: Center(
                 child: SafeArea(
                     child: Column(children: [
-              Row(children: [Expanded(child: IslamyText("إسلامي"))]),
+              Row(children: [
+                Expanded(child: IslamyText(AppLocalizations.of(context)!.title))
+              ]),
               Row(
                 children: [
                   Expanded(
@@ -31,17 +41,28 @@ class view extends StatelessWidget {
               ),
               Container(
                   decoration: BoxDecoration(
-                    border: Border.all(color: Color(0xFFB7935F)),
+                    border: Border(
+                        top: BorderSide(
+                            color: provider.isDark()
+                                ? Color(0xFFFACC1D)
+                                : Color(0xFFB7935F),
+                            width: 3),
+                        bottom: BorderSide(
+                            color: provider.isDark()
+                                ? Color(0xFFFACC1D)
+                                : Color(0xFFB7935F),
+                            width: 3)),
                   ),
                   child: Row(children: [
                     Expanded(
                         child: Text(
-                      'الأحاديث',
+                      AppLocalizations.of(context)!.title2,
                       style: TextStyle(
-                        fontFamily: 'ElMessiri',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 30,
-                      ),
+                          fontFamily: 'ElMessiri',
+                          fontWeight: FontWeight.w600,
+                          fontSize: 25,
+                          color:
+                              provider.isDark() ? Colors.white : Colors.black),
                       textAlign: TextAlign.center,
                     )),
                   ])),
@@ -59,12 +80,14 @@ class view extends StatelessWidget {
                             // contentPadding:,
 
                             title: Text(
-                              "الحديث رقم $index2",
+                              AppLocalizations.of(context)!.title3 + "$index2",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                                  fontSize: 25,
+                                  color: provider.isDark()
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontWeight: FontWeight.w600,
                                   letterSpacing: 2.0,
                                   fontFamily: 'ReemKufi'),
                             ),
@@ -72,7 +95,8 @@ class view extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => hadeth_content(index)),
+                                    builder: (context) =>
+                                        hadeth_content(index)),
                               );
                             },
                           ),

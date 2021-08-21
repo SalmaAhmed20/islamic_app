@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quran/IslamyText.dart';
+import 'package:quran/App/IslamyText.dart';
 import 'seb7a.dart';
+import 'package:provider/provider.dart';
+import '../Provider-lang-theme/providerlangTheme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class tasbeeh extends StatefulWidget {
   @override
@@ -8,34 +12,38 @@ class tasbeeh extends StatefulWidget {
 }
 
 class _tasbeehState extends State<tasbeeh> {
+  late ProviderLangTheme provider;
   int counter = 0;
   int i = 0, rotate = 0;
-  String typeTasbeeh = 'سبحان الله';
+  late String typeTasbeeh;
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<ProviderLangTheme>(context);
+    typeTasbeeh = changeTypeTasbeeh(i);
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/2.0x/bg3@2x.png"),
-              fit: BoxFit.fill),
-        ),
-        child: Center(
-          child: SafeArea(
-            child: Column(
+        body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage(provider.isDark()
+                ? "assets/images/Dark/darkbasicbg@2x.png"
+                : "assets/images/2.0x/lightbasicbg@2x.png"),
+            fit: BoxFit.fill),
+      ),
+      child: Center(
+        child: SafeArea(
+          child: Column(
             children: [
               Row(children: [
                 Expanded(
-                  child:IslamyText('إسلامي')
-                ),
+                    child: IslamyText(AppLocalizations.of(context)!.title)),
               ]),
               seb7a(degreeOfRotate(rotate)),
               Container(
                 //margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                 child: Text(
-                  'عدد التسبيحات',
+                  AppLocalizations.of(context)!.title7,
                   style: TextStyle(
-                    color: Colors.black,
+                    color: provider.isDark() ? Colors.white : Colors.black,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'ELMessiri',
                     fontSize: 20,
@@ -50,13 +58,16 @@ class _tasbeehState extends State<tasbeeh> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
-                        color: Color.fromRGBO(183, 147, 95, 0.5),
+                        color: provider.isDark()
+                            ? Color(0xFF141A2E)
+                            : Color.fromRGBO(183, 147, 95, 0.5),
                       ),
                       margin: EdgeInsets.fromLTRB(150, 30, 150, 10),
                       child: Text(
                         '$counter',
                         style: TextStyle(
-                          color: Colors.black,
+                          color:
+                              provider.isDark() ? Colors.white : Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
@@ -81,14 +92,21 @@ class _tasbeehState extends State<tasbeeh> {
                         },
                         child: Text(typeTasbeeh,
                             style: TextStyle(
-                                color: Colors.white,
+                                color: provider.isDark()
+                                    ? Colors.black
+                                    : Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'ReemKufi',
-                                fontSize: 25)),
+                                fontSize: 22)),
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                            Color.fromRGBO(183, 147, 95, 0.9882352941176471),
-                          ),
+                          backgroundColor: provider.isDark()
+                              ? MaterialStateProperty.all<Color>(
+                                  Color(0xFFFFDE37),
+                                )
+                              : MaterialStateProperty.all<Color>(
+                                  Color.fromRGBO(
+                                      183, 147, 95, 0.9882352941176471),
+                                ),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
@@ -96,8 +114,8 @@ class _tasbeehState extends State<tasbeeh> {
                           )),
                         ),
                       ),
-                      height: 40,
-                      margin: EdgeInsets.fromLTRB(100, 40, 100, 30),
+                      margin:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                     ),
                   ),
                 ],
@@ -118,13 +136,18 @@ class _tasbeehState extends State<tasbeeh> {
         i++;
         rotate = 0;
       }
-      if (i == 0) typeTasbeeh = 'سبحان الله';
-      if (i == 1) typeTasbeeh = 'الله اكبر';
-      if (i == 2) typeTasbeeh = 'لا اله الا الله';
     });
     if (i == 3) {
       i = 0;
-      typeTasbeeh = 'سبحان الله';
     }
+  }
+
+  String changeTypeTasbeeh(int i) {
+    if (i == 0) return typeTasbeeh = AppLocalizations.of(context)!.title6;
+    if (i == 1) return typeTasbeeh = AppLocalizations.of(context)!.title9;
+    if (i == 2)
+      return typeTasbeeh = AppLocalizations.of(context)!.title10;
+    else
+      return typeTasbeeh = AppLocalizations.of(context)!.title6;
   }
 }
