@@ -28,6 +28,7 @@ dependencies:
   intl: ^0.17.0
   provider: ^5.0.0
   http: ^0.13.3
+  radio_player: ^0.2.4
   shared_preferences: ^2.0.6
 
 
