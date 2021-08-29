@@ -84,19 +84,6 @@ class _radioState extends State<radio> {
                             return Directionality(
                               textDirection: TextDirection.ltr,
                               child: Row(children: [
-                               /* Expanded(
-                                  child: Text(
-                                    snapShot.data!.radios.elementAt(index).name,
-                                    style: TextStyle(
-                                      color:
-                                      provider.isDark() ? Colors.white : Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'ELMessiri',
-                                      fontSize: 23,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),*/
                                 Expanded(
                                   child: IconButton(
                                     icon: ImageIcon(AssetImage(

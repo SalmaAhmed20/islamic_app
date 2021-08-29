@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 Future<RadiosResponse> getRadioResponse(bool isArabic ) async {
   final uri = Uri.https('api.mp3quran.net',isArabic ?'radios/radio_arabic.json':'radios/radio_english.json');
   final response = await http.get(uri);
-  print(response.body);
+  //print(response.body);
   if (response.statusCode == 200) {
     return RadiosResponse.fromJsonMap(jsonDecode(response.body));
   } else {
