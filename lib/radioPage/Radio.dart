@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:quran/App/IslamyText.dart';
 import 'package:provider/provider.dart';
+import 'package:quran/radioPage/ApiManger.dart';
+import 'package:quran/radioPage/RadiosResponse.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart'as http;
 
-class radio extends StatelessWidget {
+class radio extends StatefulWidget {
+  @override
+  _radioState createState() => _radioState();
+}
+
+class _radioState extends State<radio> {
   late ProviderLangTheme provider;
+  late Future<RadiosResponse> newsFuture;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    newsFuture=getRadioResponse();
+  }
+
   @override
   Widget build(BuildContext context) {
     provider = Provider.of<ProviderLangTheme>(context);

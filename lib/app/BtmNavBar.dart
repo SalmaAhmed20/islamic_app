@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../HadethScreen/Ahadthview.dart';
 import '../Provider-lang-theme/providerlangTheme.dart';
-import '../OtherPages/Radio.dart';
+import '../radioPage/Radio.dart';
 import '../Tasbeeh/tasbeeh.dart';
 import '../FirstScreen/Quran.dart';
 import '../OtherPages/SettingPage.dart';
