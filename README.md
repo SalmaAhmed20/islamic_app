@@ -12,14 +12,18 @@ by clicking on sura's name or sura's size , another screen will be appear to you
 ## Second Page
 representing the feature of Reading Prophet Mohammad speech  by scrollable list that contain 50 speech by clicking on it the rollable text that contain all of it so you can read it
 
-##Thired Page
+## Thired Page
 representing feature praise(altasbih) that allow to count 32 Glory be to Allah (subhan allah
 )  after completing it allow to another 32 of Allah is the greatest(allah akbar
 )and after completing it allow to another 32 of No God except Allah (la alih ala allah)
 with rotating sabha
 
 ## fourth Page
-Islamic broad cast feature that allow you to listening to islamic channel (that reading Quran)
+Islamic broad cast feature that allow you to listening to islamic channel (that reading Quran) using Api
+it also support english and arabic languaghes and dark theme light theme
+
+https://user-images.githubusercontent.com/64385957/133460073-a61de00a-45c5-4a6e-8e33-8981289239d5.mp4
+
 
 
 
